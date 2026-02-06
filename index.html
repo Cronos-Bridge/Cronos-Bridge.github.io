@@ -4,57 +4,57 @@
   
 
 
-  <!-- SEO / EEAT Meta Tags -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- SEO Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)</title>
-  <meta name="description" content="Staking Polygon (POL) guide (2026): how Polygon staking works, rewards and real yield, APY vs APR, how to stake step-by-step, validator list criteria, minimum POL, calculator framework, best practices, risks, safety checks, comparisons vs liquid staking, and troubleshooting. Includes KPIs, runbook, and a deep FAQ.">
+  <title>Cronos Bridge — How to Bridge to Cronos, Fees, Wallet Setup (RPC/Chain ID), Explorer Checks & Troubleshooting (2026)</title>
+  <meta name="description" content="Cronos Bridge guide (2026): official Cronos bridging workflow, Cronos POS ↔ Cronos EVM, fees & gas, wallet setup (RPC/Chain ID), explorers, safety checklist, risks, and troubleshooting. Includes runbook, KPIs, and a deep FAQ.">
   <meta name="author" content="Crypto Finance Experts">
-  <link rel="canonical" href="https://staking-polygon.example.com/">
+  <link rel="canonical" href="https://cronos-bridge.example.com/">
 
-  <!-- Favicon (use your local file) -->
-  <link rel="icon" type="image/png" href="polygon-logo-png_seeklogo-527156.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="cronlogo.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://staking-polygon.example.com/">
-  <meta property="og:title" content="Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)">
-  <meta property="og:description" content="Practical Staking Polygon (POL) guide: rewards, APY/APR, validator selection, safety checklist, calculator framework, and troubleshooting.">
-  <meta property="og:image" content="cover.png">
+  <meta property="og:url" content="https://cronos-bridge.example.com/">
+  <meta property="og:title" content="Cronos Bridge — Fees, Wallet Setup, Explorer Checks & Troubleshooting (2026)">
+  <meta property="og:description" content="Practical Cronos Bridge guide: bridge safely, fees, chain ID/RPC, explorer verification, and troubleshooting.">
+  <meta property="og:image" content="cron.png">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://staking-polygon.example.com/">
-  <meta property="twitter:title" content="Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)">
-  <meta property="twitter:description" content="Deep Polygon staking guide: yield drivers, validator criteria, minimum POL, best practices, and risks in 2025–2026.">
-  <meta property="twitter:image" content="cover.png">
+  <meta property="twitter:url" content="https://cronos-bridge.example.com/">
+  <meta property="twitter:title" content="Cronos Bridge — How to Bridge to Cronos Safely (2026)">
+  <meta property="twitter:description" content="Deep Cronos Bridge guide: POS ↔ EVM, chain ID/RPC, explorers, safety checklist, and FAQs.">
+  <meta property="twitter:image" content="cron.png">
 
   <style>
     :root{
-      /* Black–Purple Theme */
-      --primary:#A855F7;       /* purple-500 */
-      --primary-600:#9333EA;   /* purple-600 */
-      --primary-700:#7E22CE;   /* purple-700 */
-      --accent:#22D3EE;        /* cyan accent for tiny highlights */
+      /* Cosmic / space theme */
+      --primary:#7C3AED;        /* nebula purple */
+      --primary-600:#6D28D9;
+      --primary-700:#5B21B6;
+      --accent:#22D3EE;         /* cyan */
+      --accent-2:#F472B6;       /* pink highlight */
 
-      --ink:#F8FAFC;           /* near-white text */
-      --muted:#A1A1AA;         /* zinc-400 */
-      --muted-2:#71717A;       /* zinc-500 */
+      --ink:#F8FAFC;
+      --muted:#A1A1AA;
+      --muted-2:#71717A;
 
-      --bg:#070712;            /* deep black/purple */
-      --panel:#0B0B18;
-      --panel-2:#0F0F24;
+      --bg:#040414;
+      --panel:#070724;
+      --panel-2:#0A0A2E;
       --line:rgba(255,255,255,.10);
 
-      --ok:#22C55E;
-      --warn:#F59E0B;
-      --error:#EF4444;
-
-      --shadow: 0 18px 44px rgba(0,0,0,.55);
+      --shadow: 0 18px 44px rgba(0,0,0,.60);
       --radius:14px;
-      --radius-sm:10px;
       --radius-lg:22px;
+
       --gap:1.25rem;
       --gap-lg:2rem;
     }
@@ -66,16 +66,35 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
       color:var(--muted);
       background:
-        radial-gradient(900px 600px at 15% 0%, rgba(168,85,247,.22), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(34,211,238,.10), transparent 60%),
-        radial-gradient(900px 600px at 55% 85%, rgba(126,34,206,.16), transparent 60%),
-        linear-gradient(180deg, #050510 0%, #070712 45%, #050510 100%);
+        radial-gradient(900px 600px at 12% 0%, rgba(124,58,237,.22), transparent 60%),
+        radial-gradient(900px 600px at 88% 12%, rgba(34,211,238,.14), transparent 60%),
+        radial-gradient(900px 600px at 55% 90%, rgba(244,114,182,.10), transparent 60%),
+        linear-gradient(180deg, #02020E 0%, var(--bg) 52%, #02020E 100%);
       line-height:1.65;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
     }
 
-    a{color:var(--primary); text-decoration:none}
+    /* star speckle overlay */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.32;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.65), rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 120px 160px, rgba(255,255,255,.55), rgba(255,255,255,0)),
+        radial-gradient(2px 2px at 260px 90px, rgba(255,255,255,.40), rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 520px 220px, rgba(255,255,255,.45), rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 860px 120px, rgba(255,255,255,.35), rgba(255,255,255,0));
+      background-repeat:repeat;
+      background-size:900px 520px;
+      mix-blend-mode:screen;
+    }
+
+    a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
 
     img{max-width:100%; height:auto; display:block}
@@ -93,7 +112,11 @@
       padding-top:.6rem;
       border-top:1px solid var(--line);
     }
-    h3{font-size:clamp(1.05rem,2.2vw,1.3rem); color:#EDE9FE}
+    h3{
+      font-size:clamp(1.05rem,2.2vw,1.3rem);
+      color:#EDE9FE;
+      margin-top:1rem;
+    }
 
     p,li,td,th{font-size:1rem}
     .lead{font-size:1.125rem; color:#E5E7EB}
@@ -103,9 +126,9 @@
     header.hero{
       padding: clamp(2rem,6vw,4rem) 0;
       background:
-        radial-gradient(700px 420px at 18% 10%, rgba(168,85,247,.25), transparent 60%),
-        radial-gradient(700px 420px at 90% 20%, rgba(34,211,238,.12), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 55%);
+        radial-gradient(900px 520px at 18% 10%, rgba(124,58,237,.22), transparent 62%),
+        radial-gradient(900px 520px at 90% 20%, rgba(34,211,238,.14), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0) 55%);
       border-bottom:1px solid var(--line);
     }
 
@@ -117,15 +140,18 @@
     }
 
     .hero-card{
-      background: linear-gradient(180deg, rgba(15,15,36,.82), rgba(11,11,24,.68));
+      background: linear-gradient(180deg, rgba(10,10,46,.86), rgba(7,7,36,.74));
       border:1px solid var(--line);
       border-radius:var(--radius-lg);
       padding:clamp(1rem,3vw,1.75rem);
       box-shadow:var(--shadow);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
 
-    .brand-row{display:flex; align-items:center; gap:.9rem; margin-bottom:.75rem}
+    .brand-row{
+      display:flex; align-items:center; gap:.9rem;
+      margin-bottom:.75rem
+    }
     .brand-logo{
       width:54px;
       height:54px;
@@ -138,77 +164,77 @@
       flex:0 0 auto;
     }
 
+    /* SINGLE CTA — centered, big, attractive */
+    .cta-center{
+      display:flex;
+      justify-content:center;
+      margin-top: 1.15rem;
+    }
     .cta{
-      display:inline-block;
-      margin-top:1rem;
-      background:linear-gradient(180deg, var(--primary), var(--primary-700));
-      color:white;
-      padding:.9rem 1.4rem;
-      border-radius:12px;
-      font-weight:900;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.65rem;
+      background:
+        radial-gradient(80% 140% at 50% 0%, rgba(34,211,238,.22), rgba(34,211,238,0) 60%),
+        linear-gradient(180deg, var(--accent), var(--primary-700));
+      color:#050514;
+      padding:1.22rem 2.65rem;
+      border-radius:18px;
+      font-weight:950;
       letter-spacing:.2px;
-      box-shadow:0 14px 32px rgba(168,85,247,.28);
-      border:1px solid rgba(255,255,255,.10);
+      font-size:1.14rem;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:
+        0 18px 52px rgba(34,211,238,.14),
+        0 18px 52px rgba(124,58,237,.14),
+        0 0 0 7px rgba(34,211,238,.10);
+      transform: translateZ(0);
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      text-decoration:none;
+      text-align:center;
+      min-width:min(560px, 100%);
     }
-    .cta:hover{filter:brightness(1.05); text-decoration:none}
-    .cta.secondary{
-      background:transparent;
-      border:1px solid var(--line);
-      color:var(--ink);
-      margin-left:.75rem;
-      box-shadow:none;
+    .cta:hover{
+      text-decoration:none;
+      filter:brightness(1.06);
+      transform: translateY(-2px);
+      box-shadow:
+        0 22px 64px rgba(34,211,238,.16),
+        0 22px 64px rgba(124,58,237,.18),
+        0 0 0 9px rgba(34,211,238,.12);
     }
+    .cta:active{transform: translateY(0px); filter:brightness(.98);}
 
     .note{
-      border-left:3px solid var(--primary);
-      padding:.75rem 1rem;
-      background:rgba(168,85,247,.10);
-      border-radius:10px;
+      border-left:3px solid var(--accent);
+      padding:.85rem 1rem;
+      background:rgba(34,211,238,.10);
+      border-radius:12px;
       color:#E5E7EB;
+      margin-top:1rem;
     }
 
+    /* HERO IMAGE — framed, clean */
     .hero-media{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-top: 18px;
-    }
-    .hero-img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      max-height:520px;
+      position:relative;
       border-radius:var(--radius-lg);
       border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      overflow:hidden;
       box-shadow:var(--shadow);
-      padding:.25rem;
-    }
-
-    .content-media{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-top: 14px;
-    }
-    .content-img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      max-height:420px;
-      border-radius:var(--radius);
-      border:1px solid var(--line);
       background:rgba(255,255,255,.04);
-      box-shadow:var(--shadow);
-      padding:.25rem;
+    }
+    .hero-media::before{content:""; display:block; padding-top:56.25%;}
+    .hero-img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
     }
 
     section.step-guide{padding: clamp(2rem,6vw,3.5rem) 0}
     .steps{display:grid; gap:var(--gap); grid-template-columns:1fr;}
     .step{
-      background:linear-gradient(180deg, rgba(15,15,36,.78), rgba(11,11,24,.62));
+      background:linear-gradient(180deg, rgba(10,10,46,.82), rgba(7,7,36,.70));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1.2rem;
@@ -219,7 +245,7 @@
     .step .icon{
       width:54px;height:54px;border-radius:50%;
       display:inline-grid; place-items:center;
-      background:rgba(168,85,247,.18);
+      background:rgba(124,58,237,.18);
       margin-bottom:.6rem;
       color:#EDE9FE;
       font-weight:950;
@@ -227,7 +253,7 @@
     }
 
     main .card{
-      background:linear-gradient(180deg, rgba(15,15,36,.70), rgba(11,11,24,.58));
+      background:linear-gradient(180deg, rgba(10,10,46,.76), rgba(7,7,36,.66));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1.25rem;
@@ -236,80 +262,36 @@
     }
 
     .grid-2{display:grid; gap:var(--gap); grid-template-columns:1fr;}
-    .pillbar{
-      display:flex; flex-wrap:wrap; gap:.6rem;
-      margin:.75rem 0 0;
-    }
-    .pill{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      padding:.4rem .65rem;
-      border-radius:999px;
-      font-weight:800;
-      color:#E5E7EB;
-      box-shadow:none;
-    }
-
     .toc{
       border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(168,85,247,.10), rgba(255,255,255,.02));
+      background:linear-gradient(180deg, rgba(124,58,237,.14), rgba(255,255,255,.03));
       border-radius:var(--radius);
       padding:1rem;
     }
     .toc strong{color:#F1F5F9}
     .toc ul{margin:.5rem 0 0; padding-left:1.1rem}
     .toc li{margin:.25rem 0}
-    .toc a{font-weight:800}
+    .toc a{font-weight:950; color:var(--accent)}
 
     table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
     th,td{padding:.9rem; border-bottom:1px solid var(--line)}
     th{
-      background:rgba(168,85,247,.10);
+      background:rgba(34,211,238,.10);
       color:#F8FAFC;
       text-align:left
     }
-    tr.highlight{background:rgba(168,85,247,.08)}
+    tr.highlight{background:rgba(124,58,237,.10)}
     tr:hover{background:rgba(255,255,255,.03)}
 
-    .ok{color:var(--ok)} .warn{color:var(--warn)} .err{color:var(--error)}
-
-    .eeat{
-      background:linear-gradient(180deg, rgba(168,85,247,.10), rgba(255,255,255,.02));
+    code, .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .inline-code{
+      display:inline-block;
+      padding:.15rem .35rem;
+      border-radius:8px;
       border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1.25rem;
-      box-shadow: 0 12px 26px rgba(0,0,0,.45);
-    }
-
-    .faq-item{border-bottom:1px solid var(--line); padding: .9rem 0}
-    .faq-button{
-      all:unset; display:flex; justify-content:space-between; align-items:center;
-      width:100%; cursor:pointer; padding:.3rem 0;
-    }
-    .faq-button:focus-visible{outline:2px solid var(--primary)}
-    .faq-button h3{margin:0; font-weight:950}
-    .faq-content{max-height:0; overflow:hidden; transition:max-height .25s ease}
-    .faq-content.open{padding-top:.6rem}
-    .faq-plus{font-weight:950; color:#EDE9FE}
-
-    .cta-center{
-      display:flex;
-      justify-content:center;
-      margin-top: 1rem;
-    }
-    .cta-center .cta{margin-top:0}
-
-    .badge-row{
-      display:flex; flex-wrap:wrap; gap:.6rem;
-      margin:.9rem 0 0;
-    }
-    .badge{
-      border:1px solid var(--line);
-      background:rgba(34,211,238,.06);
-      padding:.35rem .6rem;
-      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:#F8FAFC;
       font-weight:900;
-      color:#E5E7EB;
     }
 
     .callout-grid{
@@ -324,22 +306,61 @@
       border-radius:var(--radius);
       padding:1rem;
     }
-    .mini h3{margin-bottom:.35rem}
     .kpi-badges{
-      display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.5rem;
+      display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.6rem;
     }
     .kpi-badges span{
-      border:1px solid rgba(168,85,247,.22);
-      background:rgba(168,85,247,.07);
-      color:#EDE9FE;
+      border:1px solid rgba(34,211,238,.20);
+      background:rgba(34,211,238,.08);
+      color:#E5E7EB;
       padding:.3rem .55rem;
       border-radius:999px;
-      font-weight:900;
+      font-weight:950;
       font-size:.9rem;
     }
 
+    /* SECONDARY IMAGE — do NOT stretch/crop */
+    .content-media{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:14px;
+
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:rgba(255,255,255,.04);
+      padding:12px;
+    }
+    .content-img{
+      width:100%;
+      height:auto;
+      max-height:420px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .sources{
+      background:linear-gradient(180deg, rgba(34,211,238,.10), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:1.25rem;
+      box-shadow: 0 12px 26px rgba(0,0,0,.45);
+    }
+
+    .faq-item{border-bottom:1px solid var(--line); padding: .9rem 0}
+    .faq-button{
+      all:unset; display:flex; justify-content:space-between; align-items:center;
+      width:100%; cursor:pointer; padding:.3rem 0;
+    }
+    .faq-button:focus-visible{outline:2px solid var(--accent)}
+    .faq-button h3{margin:0; font-weight:950}
+    .faq-content{max-height:0; overflow:hidden; transition:max-height .25s ease}
+    .faq-content.open{padding-top:.6rem}
+    .faq-plus{font-weight:950; color:#EDE9FE}
+
     @media (min-width: 860px){
-      .hero-grid{grid-template-columns: 1fr;}
       .steps{grid-template-columns: repeat(4, 1fr)}
       .grid-2{grid-template-columns: 1fr 1fr}
       .callout-grid{grid-template-columns: 1fr 1fr}
@@ -353,72 +374,72 @@
   <div class="container hero-grid">
     <div class="hero-card" aria-label="Intro">
       <div class="brand-row">
-        <img class="brand-logo" src="polygon-logo-png_seeklogo-527156.png" alt="Staking Polygon logo">
+        <img class="brand-logo" src="cronlogo.png" alt="Cronos logo">
         <div>
-          <div class="muted" style="font-weight:900; letter-spacing:.2px;">Operational Guide</div>
-          <div class="muted-2" style="font-size:.95rem;">Rewards • APY/APR • Validators • Calculator • Safety</div>
+          <div class="muted" style="font-weight:950; letter-spacing:.2px;">Operational Guide</div>
+          <div class="muted-2" style="font-size:.95rem;">Cronos Bridge • Chain ID/RPC • Fees • Explorer Checks • Troubleshooting</div>
         </div>
       </div>
 
-      <h1>Staking Polygon (POL)</h1>
+      <h1>Cronos Bridge</h1>
       <p class="lead">
-        This is a practical, security-first guide to <strong>Staking Polygon (POL)</strong>: how staking works end-to-end,
-        what drives rewards, how to compare <strong>APY vs APR</strong>, how to choose validators, how to estimate yield with
-        a calculator framework, and how to avoid the common mistakes that cause lost time (or lost funds).
+        This is a practical, security-first guide to <strong>Cronos Bridge</strong>: how to move assets between
+        <strong>Cronos POS Chain</strong> and <strong>Cronos EVM</strong>, what fees you pay (gas + approvals),
+        how to set up your wallet (RPC / Chain ID), how to verify on explorers, and how to fix the most common
+        “pending bridge / wrong network / token not showing” issues.
       </p>
 
-
+      <!-- ONE CENTERED BUTTON -->
       <div class="cta-center">
-        <a href="https://staking-polygon.com/" class="cta" aria-label="Open Polygon Staking (placeholder)">Open Polygon Staking</a>
+        <a href="https://cronos.org/bridge/" class="cta" aria-label="Open Cronos Bridge">
+          Open Cronos Bridge
+        </a>
       </div>
 
-      <div class="note" style="margin-top:1rem;">
-        <strong>Quick rule:</strong> If you’re staking meaningful size, do a small test delegation first,
-        then scale in. Staking is operational: validator choice, unbonding rules, and wallet hygiene matter.
+      <div class="note">
+        <strong>Quick rule:</strong> bookmark the official Cronos Bridge and start with a small test transfer.
+        Most failures come from wrong chain selection, fake links, or not keeping enough gas to retry/verify.
       </div>
     </div>
 
     <div class="hero-media" aria-hidden="true">
-      <!-- First top image -->
-      <img class="hero-img" src="snimok-ekrana-2022-01-25-v-16.10.24.png" alt="Staking Polygon overview visual">
+      <img class="hero-img" src="cron.png" alt="Cronos Bridge hero image">
     </div>
   </div>
 </header>
 
 <section class="step-guide" aria-labelledby="how-works">
   <div class="container">
-    <h2 id="how-works">Staking Polygon (POL): How the Workflow Works (Choose → Delegate → Earn → Unstake)</h2>
+    <h2 id="how-works">Cronos Bridge Workflow: Add Network → Fund Gas → Bridge → Verify → Use / Return</h2>
     <div class="steps" role="list">
       <article class="step" role="listitem">
         <div class="icon">①</div>
-        <h3>Choose a staking method (native vs liquid staking)</h3>
+        <h3>Add Cronos EVM network (Chain ID + RPC)</h3>
         <p>
-          Decide if you want native delegation (more “direct”, but with lock/unbond rules) or liquid staking
-          (more flexibility, but extra smart-contract and peg/liquidity considerations).
+          Set up Cronos EVM correctly so your wallet can display balances and send transactions on the right chain.
+          Cronos Mainnet uses Chain ID <strong>25</strong>.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">②</div>
-        <h3>Select validators (the real risk/return lever)</h3>
+        <h3>Fund CRO gas before you bridge</h3>
         <p>
-          Your validator choice drives uptime risk, slashing exposure, commission drag, and reliability.
-          “Highest APY” is not a strategy if the operator is unstable or opaque.
+          Cronos EVM uses <strong>CRO</strong> for gas. Keep a buffer so you can approve tokens, retry transactions, and recover safely.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">③</div>
-        <h3>Delegate and track rewards (net yield matters)</h3>
+        <h3>Use Cronos Bridge (start with a test)</h3>
         <p>
-          Rewards are not just “APR”: net yield depends on commission, compounding cadence, and any extra
-          fees/constraints. Track realized outcomes, not only quotes.
+          The official Cronos Bridge provides a route to transfer assets to and from Cronos EVM.
+          Confirm “From / To”, token, and destination address before signing.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">④</div>
-        <h3>Unstake safely (timelines, claims, and mistakes)</h3>
+        <h3>Verify on explorer (source of truth)</h3>
         <p>
-          The exit path is part of the plan: understand unbonding delays, claim steps, and how long capital is illiquid.
-          Most “stuck” issues come from missing exit steps or network mismatch.
+          Wallet UIs can lag. Use Cronos Explorer to verify the transfer, token contract, and balances.
         </p>
       </article>
     </div>
@@ -428,484 +449,406 @@
 <main class="container" role="main">
 
   <section class="card toc" aria-label="Table of Contents">
-    <strong>On this page (Staking Polygon):</strong>
+    <strong>On this page (Cronos Bridge):</strong>
     <ul>
-      <li><a href="#overview">Staking Polygon overview (what it is &amp; who it’s for)</a></li>
-      <li><a href="#rewards">Polygon staking rewards: what drives yield</a></li>
-      <li><a href="#apy-apr">Polygon staking APY / APR: how to compare correctly</a></li>
-      <li><a href="#how-to">How to stake Polygon (POL): step-by-step tutorial</a></li>
-      <li><a href="#calculator">Polygon staking calculator: estimation framework</a></li>
-      <li><a href="#validators">Polygon validator list: selection checklist</a></li>
-      <li><a href="#minimum">Polygon staking minimum POL required</a></li>
-      <li><a href="#yield">Polygon staking yield: compounding &amp; net return</a></li>
-      <li><a href="#review">Staking Polygon review: legit, trust, and what to watch</a></li>
-      <li><a href="#safety">Is staking Polygon safe? risks &amp; rewards</a></li>
-      <li><a href="#comparison">Staking Polygon comparison vs liquid staking</a></li>
-      <li><a href="#best-practices">Best way to stake Polygon: best practices</a></li>
-      <li><a href="#troubleshooting">Troubleshooting &amp; common issues</a></li>
-      <li><a href="#eeat">Sources &amp; references</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#overview">Cronos Bridge overview (what it is & who it’s for)</a></li>
+      <li><a href="#directions">Cronos Bridge directions: POS ↔ EVM (what’s different)</a></li>
+      <li><a href="#fees">Cronos Bridge fees: gas, approvals, and practical cost drivers</a></li>
+      <li><a href="#wallet">Cronos network setup: Chain ID, RPC, gas token, explorers</a></li>
+      <li><a href="#verify">Cronos Bridge verification: explorer checks (fast debug)</a></li>
+      <li><a href="#safety">Cronos Bridge safety checklist</a></li>
+      <li><a href="#troubleshooting">Cronos Bridge troubleshooting</a></li>
+      <li><a href="#sources">Authoritative sources & references</a></li>
+      <li><a href="#faq">Cronos Bridge FAQ (deep)</a></li>
     </ul>
   </section>
 
   <section class="card" id="overview">
-    <h2>Staking Polygon Overview: What It Is, and Why People Stake POL</h2>
+    <h2>Cronos Bridge Overview: What Cronos Bridge Is (and When to Use It)</h2>
     <p>
-      <strong>Staking Polygon (POL)</strong> generally means committing POL to help secure network operations (directly or via delegation),
-      earning rewards in return. The trade-off is simple: you exchange liquidity and operational attention
-      (validator selection + rules) for yield and network participation.
+      <strong>Cronos Bridge</strong> is the official bridging experience for moving assets to and from <strong>Cronos EVM</strong>.
+      The bridge UI makes it easier to choose source/destination networks, track status, and avoid common workflow errors. The operational goals are simple:
+      use the official bridge URL, confirm the chain/network each time, and verify results on the explorer.
     </p>
 
     <div class="callout-grid" role="list">
       <div class="mini" role="listitem">
-        <h3>Best use-case</h3>
+        <h3>Best use-case for Cronos Bridge</h3>
         <p class="muted">
-          Long-term holders who want yield and can tolerate lock/unbond timelines.
+          You want an official, guided transfer flow into or out of Cronos EVM with clear confirmation and history.
         </p>
         <div class="kpi-badges">
-          <span>Long-term</span><span>Yield-focused</span><span>Risk-managed</span>
+          <span>Official route</span><span>Status tracking</span><span>Explorer-verifiable</span>
         </div>
       </div>
 
       <div class="mini" role="listitem">
-        <h3>Main constraints</h3>
+        <h3>Main risks</h3>
         <p class="muted">
-          Unbonding delay, validator/operator risk, and the need for careful wallet hygiene.
+          Phishing links, wrong network selection, and insufficient gas for approvals/retries.
+          Mitigate with bookmarks, test transfers, and gas buffers.
         </p>
         <div class="kpi-badges">
-          <span>Illiquidity</span><span>Operator risk</span><span>Process matters</span>
+          <span>Phishing</span><span>Wrong chain</span><span>Gas buffer</span>
         </div>
       </div>
     </div>
 
-    <div class="note" style="margin-top:1rem;">
-      <strong>Operational truth:</strong> the “best” staking setup is the one you can exit safely.
-      Always plan the unstake path before you stake.
+    <div class="note">
+      <strong>Operational truth:</strong> if the explorer shows a successful transaction, funds are almost never “gone” —
+      it’s typically a network/account/token-visibility issue.
     </div>
 
     <div class="content-media">
-      <!-- Second image -->
-      <img class="content-img" src="poly2.png" alt="Staking Polygon checklist visual">
+      <img class="content-img" src="cron2.png" alt="Cronos Bridge secondary image">
     </div>
   </section>
 
-  <section class="card" id="rewards">
-    <h2>Polygon Staking Rewards: What Drives Rewards and Why They Change</h2>
+  <section class="card" id="directions">
+    <h2>Cronos Bridge Directions: Cronos POS Chain ↔ Cronos EVM (What Changes)</h2>
     <p>
-      <strong>Polygon staking rewards</strong> vary over time. Your realized outcome depends on network conditions and
-      your validator’s behavior (commission, uptime, performance), plus how you compound.
-    </p>
-    <ul>
-      <li><strong>Validator commission:</strong> your rewards are reduced by the operator’s cut.</li>
-      <li><strong>Uptime/performance:</strong> instability reduces rewards and can increase risk.</li>
-      <li><strong>Compounding cadence:</strong> auto-compound vs manual compounding changes net APY.</li>
-      <li><strong>Operational fees:</strong> some paths require extra transactions (claim/compound/unstake).</li>
-    </ul>
-
-    <div class="note">
-      <strong>Rule:</strong> Treat quoted yield as “gross”. Track net yield after commission + fees + missed time (downtime/unbond).
-    </div>
-  </section>
-
-  <section class="card" id="apy-apr">
-    <h2>Polygon Staking APY / APR: How to Compare Without Getting Tricked</h2>
-    <p>
-      <strong>APR</strong> is typically the “simple rate” (no compounding assumption).
-      <strong>APY</strong> includes a compounding assumption (and can be misleading if compounding isn’t realistic or fees are ignored).
+      Cronos bridging is easiest to reason about as two different environments:
+      <strong>Cronos POS Chain</strong> (Cosmos-based) and <strong>Cronos EVM</strong> (EVM chain).
+      Cronos Bridge supports transfers to and from Cronos EVM, and the UI will guide “From / To” selection.
     </p>
 
-    <table aria-label="APY vs APR comparison">
+    <table aria-label="Cronos POS vs Cronos EVM">
       <thead>
         <tr>
-          <th>Term</th>
-          <th>What it implies</th>
+          <th>Network</th>
+          <th>What it is</th>
           <th>Common mistake</th>
         </tr>
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>APR</td>
-          <td>Simple annual rate (no compounding)</td>
-          <td>Assuming APR = final outcome (it ignores compounding and fees)</td>
+          <td>Cronos POS Chain</td>
+          <td>Cosmos-based environment (non-EVM)</td>
+          <td>Expecting EVM wallet to show balances without the right tooling</td>
         </tr>
         <tr>
-          <td>APY</td>
-          <td>Annualized rate with compounding assumption</td>
-          <td>Believing APY without checking compounding frequency + transaction costs</td>
+          <td>Cronos EVM</td>
+          <td>EVM-compatible chain (Chain ID 25)</td>
+          <td>Staying on the wrong network in wallet and thinking funds are missing</td>
         </tr>
       </tbody>
     </table>
 
     <div class="note">
-      <strong>Quick check:</strong> If compounding requires frequent transactions, fees can erase the “APY gap” for small balances.
+      <strong>Rule:</strong> every bridge has two proofs: origin-side tx + destination-side state. Verify both.
     </div>
   </section>
 
-  <section class="card" id="how-to">
-    <h2>How to Stake Polygon (POL): Tutorial (Clean, Repeatable Workflow)</h2>
-    <ol>
-      <li><strong>Choose your method:</strong> native staking vs liquid staking (based on your liquidity needs).</li>
-      <li><strong>Prepare wallet hygiene:</strong> verify official URLs, consider hardware wallet for size, keep backups safe.</li>
-      <li><strong>Pick a validator:</strong> assess commission, uptime history, transparency, and operational reputation.</li>
-      <li><strong>Delegate a small test:</strong> verify rewards accrual and that you understand the UI and steps.</li>
-      <li><strong>Scale in:</strong> add stake in tranches to reduce operational mistakes.</li>
-      <li><strong>Track + compound:</strong> decide if compounding is worth it after fees.</li>
-      <li><strong>Plan your exit:</strong> know unbonding/claim rules before you need liquidity.</li>
-    </ol>
+  <section class="card" id="fees">
+    <h2>Cronos Bridge Fees: What You Pay (Gas + Approvals + Retries)</h2>
+    <p>
+      <strong>Cronos Bridge fees</strong> are mostly network fees:
+      you pay gas for approvals and transfers on the involved chains. On Cronos EVM, gas is paid in <strong>CRO</strong>.
+      For small transfers, approvals can be a meaningful share of total cost.
+    </p>
+    <ul>
+      <li><strong>Gas on Cronos EVM:</strong> paid in CRO (needed for approvals, swaps, transfers, and recovery).</li>
+      <li><strong>Approval cost:</strong> the first time you bridge or swap a token, you may need an approval transaction.</li>
+      <li><strong>Retries:</strong> if you need to resubmit with higher gas or redo an approval, that costs extra.</li>
+    </ul>
 
     <div class="note">
-      <strong>Best way to stake Polygon:</strong> stable operational setup beats chasing the highest headline number.
-      Reliability + sane commission + safe process wins.
+      <strong>Practical tip:</strong> never bridge “all-in”. Keep extra CRO for gas so you can fix mistakes without panic.
     </div>
   </section>
 
-  <section class="card" id="calculator">
-    <h2>Polygon Staking Calculator: A Practical Estimation Framework</h2>
+  <section class="card" id="wallet">
+    <h2>Cronos Network Setup: Chain ID, Gas Token, RPC, and Explorers</h2>
     <p>
-      A <strong>Polygon staking calculator</strong> should estimate your <em>net</em> outcome (not just a marketing APY).
-      Use this framework:
+      Correct wallet setup eliminates most “Cronos Bridge not received” issues.
+      Cronos Mainnet uses Chain ID <strong>25</strong> and gas token <strong>CRO</strong>.
+      Use official docs (MetaMask configuration) or trusted registries like Chainlist to add the network safely.
     </p>
 
-    <table aria-label="Staking calculator inputs">
+    <table aria-label="Cronos EVM parameters">
       <thead>
         <tr>
-          <th>Input</th>
-          <th>Meaning</th>
-          <th>Why it matters</th>
+          <th>Parameter</th>
+          <th>Value</th>
+          <th>Why it matters for Cronos Bridge</th>
         </tr>
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>Stake amount (POL)</td>
-          <td>Your principal</td>
-          <td>Determines if compounding fees are worth it</td>
+          <td>Chain ID</td>
+          <td><span class="mono">25</span></td>
+          <td>Ensures wallet signs transactions on Cronos EVM</td>
         </tr>
         <tr>
-          <td>Gross APR</td>
-          <td>Network/validator rate before compounding</td>
-          <td>Baseline yield driver</td>
+          <td>Symbol (gas)</td>
+          <td>CRO</td>
+          <td>Required to pay gas and complete actions on Cronos EVM</td>
         </tr>
         <tr>
-          <td>Validator commission</td>
-          <td>Operator cut</td>
-          <td>Directly reduces rewards</td>
+          <td>Explorer</td>
+          <td><span class="mono">https://explorer.cronos.org</span></td>
+          <td>Primary verification source of truth</td>
         </tr>
         <tr>
-          <td>Compounding frequency</td>
-          <td>Monthly/weekly/daily (if applicable)</td>
-          <td>Increases APY but may increase fees</td>
-        </tr>
-        <tr>
-          <td>Tx costs</td>
-          <td>Claim/compound/unstake fees</td>
-          <td>Can dominate small portfolios</td>
+          <td>Network registry</td>
+          <td><span class="mono">chainlist.org/chain/25</span></td>
+          <td>Quick add + cross-check settings</td>
         </tr>
       </tbody>
     </table>
 
     <div class="note">
-      <strong>Calculator takeaway:</strong> For smaller balances, “set and forget” (no frequent compounding) often yields higher net results after fees.
+      <strong>Note:</strong> some older explorer endpoints were deprecated; prefer the official Cronos Explorer for verification.
     </div>
   </section>
 
-  <section class="card" id="validators">
-    <h2>Polygon Validator List: How to Choose the Right Validator</h2>
+  <section class="card" id="verify">
+    <h2>Cronos Bridge Verification: How to Confirm Transfers (Fast Debug Method)</h2>
     <p>
-      Instead of chasing “top APR”, evaluate validators like infrastructure providers.
-      A strong <strong>Polygon validator list</strong> checklist:
-    </p>
-    <ul>
-      <li><strong>Commission:</strong> reasonable and stable (avoid sudden spikes).</li>
-      <li><strong>Uptime &amp; reliability:</strong> consistent performance matters more than hype.</li>
-      <li><strong>Transparency:</strong> clear operator identity, documentation, and communication.</li>
-      <li><strong>Risk posture:</strong> sensible security practices and operational maturity.</li>
-    </ul>
-
-    <div class="note">
-      <strong>Heuristic:</strong> Pick validators you can explain in one sentence (who they are + why you trust their operations).
-    </div>
-  </section>
-
-  <section class="card" id="minimum">
-    <h2>Polygon Staking Minimum POL Required</h2>
-    <p>
-      The <strong>Polygon staking minimum POL required</strong> depends on the staking method and platform.
-      In practice, your “real minimum” is the amount where fees don’t crush net yield and you can still afford
-      exit transactions if needed.
-    </p>
-    <ul>
-      <li><strong>Hard minimum:</strong> varies by method/platform.</li>
-      <li><strong>Practical minimum:</strong> enough POL so periodic transactions (claim/compound/unstake) don’t eat yield.</li>
-      <li><strong>Safety minimum:</strong> keep extra for network fees and recovery actions.</li>
-    </ul>
-
-    <div class="note">
-      <strong>Rule:</strong> Always keep a gas buffer; being “all-in” is how people get stuck.
-    </div>
-  </section>
-
-  <section class="card" id="yield">
-    <h2>Polygon Staking Yield: How to Think About Net Returns</h2>
-    <p>
-      <strong>Polygon staking yield</strong> should be evaluated as <em>net</em> performance: rewards minus commissions minus fees,
-      adjusted for time locked/unbonded and any downtime.
+      If anything looks wrong after using <strong>Cronos Bridge</strong>, verify in this order:
+      (1) confirm the connected address, (2) confirm the selected chain in your wallet, (3) verify the transaction on the explorer,
+      and (4) verify the token contract is correct.
     </p>
 
-    <h3>Net yield checklist</h3>
-    <ul>
-      <li>Gross rewards earned</li>
-      <li>Minus validator commission</li>
-      <li>Minus transaction costs (claim/compound/unstake)</li>
-      <li>Minus “lost time” (unbonding delays / operational downtime)</li>
-    </ul>
-
-    <div class="note">
-      <strong>Best practice:</strong> Track realized outcomes quarterly. If net yield is not beating your alternative (or risk feels wrong), rotate strategy.
-    </div>
-  </section>
-
-  <section class="card" id="review">
-    <h2>Staking Polygon Review: Legit, Trust, and What to Watch (2025–2026)</h2>
-    <p>
-      A <strong>Staking Polygon review</strong> should focus on predictable outcomes and safety:
-      whether the process is understandable, the validator ecosystem is mature, and the “gotchas” are manageable.
-    </p>
-
-    <div class="callout-grid">
+    <div class="grid-2">
       <div class="mini">
-        <h3>Staking Polygon legit?</h3>
+        <h3>Cronos Bridge (official)</h3>
         <p class="muted">
-          Generally, staking as a mechanism is legitimate. Your real question is: <em>which method/provider</em> and
-          <em>which validator</em> are you trusting operationally.
+          Use the bridge history and the tx hash to jump to explorer verification.
+          <br>
+          <a href="https://cronos.org/bridge/" target="_blank" rel="noopener nofollow">Open Cronos Bridge</a>
         </p>
       </div>
       <div class="mini">
-        <h3>Staking Polygon trust</h3>
+        <h3>Cronos Explorer</h3>
         <p class="muted">
-          Trust is earned via transparency: clear docs, known operators, consistent performance, and a clean exit path.
+          Check tx status, token transfers, contract addresses, and balances.
+          <br>
+          <a href="https://explorer.cronos.org/" target="_blank" rel="noopener nofollow">Open Cronos Explorer</a>
         </p>
       </div>
     </div>
 
-    <div class="note">
-      <strong>2025 / 2026 lens:</strong> The market rewards operational discipline. Assume attackers target approvals, fake sites, and users rushing steps.
+    <div class="note" style="margin-top:1rem;">
+      <strong>Fast fix:</strong> switch wallet network → refresh → verify contract on explorer → add token manually only if verified.
     </div>
   </section>
 
   <section class="card" id="safety">
-    <h2>Staking Polygon Safe? Risks and Rewards (What Actually Matters)</h2>
-    <p>
-      “Safe” is not binary. <strong>Staking Polygon safe</strong> depends on method risk + validator/operator risk + user mistakes.
-      You can reduce risk dramatically with hygiene and conservative choices.
-    </p>
-
-    <h3>Key risks</h3>
+    <h2>Cronos Bridge Safety Checklist: High-Impact Habits</h2>
     <ul>
-      <li><strong>Smart-contract risk:</strong> higher with extra layers (some liquid staking designs).</li>
-      <li><strong>Validator/operator risk:</strong> downtime, poor ops, slashing exposure.</li>
-      <li><strong>Phishing/approval risk:</strong> fake UIs and bad approvals are top avoidable loss sources.</li>
-      <li><strong>Liquidity risk:</strong> you may not be able to exit instantly (unbonding / market liquidity).</li>
+      <li><strong>Bookmark the official Cronos Bridge</strong> and Cronos docs.</li>
+      <li><strong>Test transfer first</strong> (new wallet, new device, or first time using a bridge).</li>
+      <li><strong>Keep CRO gas buffers</strong> on Cronos EVM for approvals, retries, and recovery.</li>
+      <li><strong>Use minimal approvals</strong>; avoid unlimited allowances for unknown contracts.</li>
+      <li><strong>Verify token contracts</strong> on Cronos Explorer before adding to wallet UI.</li>
+      <li><strong>Never use exchange deposit addresses</strong> for bridging unless the bridge explicitly supports it.</li>
     </ul>
 
     <div class="note">
-      <strong>Hard rule:</strong> Use bookmarks for official sites, prefer minimal approvals, and keep a separate wallet for “daily” dApp usage if you’re staking meaningful size.
-    </div>
-  </section>
-
-  <section class="card" id="comparison">
-    <h2>Staking Polygon Comparison: Native Staking vs Liquid Staking</h2>
-    <p>
-      <strong>Staking Polygon vs liquid staking</strong> is a trade-off between simplicity and flexibility.
-      Choose based on your need for liquidity and your tolerance for extra smart-contract/market risks.
-    </p>
-
-    <table aria-label="Native vs Liquid staking">
-      <thead>
-        <tr>
-          <th>Dimension</th>
-          <th>Native delegation</th>
-          <th>Liquid staking</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="highlight">
-          <td>Liquidity</td>
-          <td>Lower (unbonding delays)</td>
-          <td>Higher (tokenized position, depends on market)</td>
-        </tr>
-        <tr>
-          <td>Complexity</td>
-          <td>Lower</td>
-          <td>Higher (contracts + peg/liquidity)</td>
-        </tr>
-        <tr>
-          <td>Risk surface</td>
-          <td>Validator/operator + protocol rules</td>
-          <td>Native risks + smart-contract + market liquidity risks</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="note">
-      <strong>Decision rule:</strong> If you need quick exits, liquid staking can help—but treat it like an additional layer of risk.
-    </div>
-  </section>
-
-  <section class="card" id="best-practices">
-    <h2>Best Way to Stake Polygon: Best Practices (Simple, High-Impact)</h2>
-    <ul>
-      <li><strong>Use a hardware wallet</strong> for meaningful amounts.</li>
-      <li><strong>Delegate in tranches</strong> (test small, then scale).</li>
-      <li><strong>Prefer reputable validators</strong> with stable commission and strong ops.</li>
-      <li><strong>Keep a gas buffer</strong> for claim/unstake/recovery actions.</li>
-      <li><strong>Review allowances periodically</strong> and revoke stale permissions.</li>
-      <li><strong>Track net yield</strong> (not just headline APY).</li>
-    </ul>
-
-    <div class="note">
-      <strong>Most common mistake:</strong> users optimize for +0.5% yield and ignore the 10× bigger risk: bad ops + bad security habits.
+      <strong>Most common loss pattern:</strong> users click a fake bridge link, sign a malicious approval, then lose tokens later.
+      Bookmarks + verification prevent this.
     </div>
   </section>
 
   <section class="card" id="troubleshooting">
-    <h2>Staking Polygon Troubleshooting: Common Issues, Root Causes, Fixes</h2>
+    <h2>Cronos Bridge Troubleshooting: Common Issues, Root Causes, Fixes</h2>
 
-    <h3>“Rewards not showing”</h3>
+    <h3>“Bridge says completed but I don’t see tokens”</h3>
     <ul>
-      <li>You’re viewing the wrong network/account in the wallet.</li>
-      <li>Rewards accrue but require a claim/refresh action in the UI.</li>
-      <li>Validator has downtime or reporting lag—check on-chain data if available.</li>
+      <li>Switch wallet to <strong>Cronos EVM</strong> (Chain ID 25) and refresh.</li>
+      <li>Check your address on Cronos Explorer and confirm the token transfer exists.</li>
+      <li>Add the token manually only if you verified the contract address on the explorer.</li>
     </ul>
 
-    <h3>“Can’t unstake / withdraw”</h3>
+    <h3>“Transaction pending / stuck”</h3>
     <ul>
-      <li>Unbonding period is active (wait until it completes).</li>
-      <li>There is a claim/finalize step you haven’t executed.</li>
-      <li>You don’t have enough gas for the exit transaction.</li>
+      <li>Check explorer status first (UI can lag).</li>
+      <li>If it’s pending, you may need to speed up/replace the tx (wallet feature) with sufficient gas.</li>
+      <li>RPC issues: reconnect wallet or use an alternative trusted RPC source via official docs/Chainlist.</li>
     </ul>
 
-    <h3>“APY seems lower than expected”</h3>
+    <h3>“Wrong network / bridged to the wrong chain”</h3>
     <ul>
-      <li>Commission is higher than assumed.</li>
-      <li>Compounding is not happening (or fees make it not worth it).</li>
-      <li>Validator performance/uptime reduced realized rewards.</li>
+      <li>Confirm whether you bridged to Cronos POS Chain or Cronos EVM.</li>
+      <li>Use the correct explorer/tooling for the destination environment.</li>
+      <li>Save the tx hash and check the bridge history for the exact “From → To” route.</li>
     </ul>
 
     <div class="note">
-      <strong>Best debugging method:</strong> verify state from the chain / official dashboards first, then UI second.
-      UI can lag; on-chain data is the source of truth.
+      <strong>Golden rule:</strong> if the explorer shows “success”, don’t resend blindly. Fix visibility first.
     </div>
   </section>
 
-  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
-    <h2 id="eeat-title">Staking Polygon: Authoritative Notes &amp; External References</h2>
-    <p>
-      Replace placeholder links with your chosen authoritative sources. Keep this block “clean” (official docs, reputable security resources,
-      and dashboards) to strengthen EEAT.
-    </p>
+  <section class="sources" id="sources" aria-labelledby="sources-title">
+    <h2 id="sources-title">Authoritative Sources & References</h2>
+    <p>Use official Cronos resources and trusted registries to verify links, chain settings, and explorers:</p>
 
-    <h3>Polygon / Staking</h3>
+    <h3>Official Cronos Bridge & docs</h3>
     <ul>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon — Official Site</a></li>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon Staking — Official Docs</a></li>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon Validators — Explorer / Dashboard</a></li>
+      <li><a href="https://cronos.org/bridge/" target="_blank" rel="noopener nofollow">Cronos EVM Bridge (official)</a></li>
+      <li><a href="https://docs.cronos.org/for-users/metamask" target="_blank" rel="noopener nofollow">Cronos Docs — MetaMask configuration</a></li>
+      <li><a href="https://docs.cronos.org/for-users/bridge/other_chain/webapp" target="_blank" rel="noopener nofollow">Cronos Docs — Bridge Web App guide</a></li>
+    </ul>
+
+    <h3>Explorers & network registry</h3>
+    <ul>
+      <li><a href="https://explorer.cronos.org/" target="_blank" rel="noopener nofollow">Cronos Explorer (official)</a></li>
+      <li><a href="https://chainlist.org/chain/25" target="_blank" rel="noopener nofollow">Chainlist — Cronos Mainnet (Chain ID 25)</a></li>
+    </ul>
+
+    <h3>Bridge support notes</h3>
+    <ul>
+      <li><a href="https://help.crypto.com/en/articles/5645017-cronos-bridge" target="_blank" rel="noopener nofollow">Crypto.com Help — Cronos Bridge overview</a></li>
     </ul>
 
     <h3>Security hygiene</h3>
     <ul>
-      <li><a href="https://ethereum.org/guides/how-to-revoke-token-access/" target="_blank" rel="noopener nofollow">Ethereum.org — Revoke Token Approvals</a></li>
-      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Allowance Management</a></li>
-      <li><a href="https://blog.openzeppelin.com/" target="_blank" rel="noopener nofollow">OpenZeppelin — Smart Contract Security</a></li>
-      <li><a href="https://consensys.io/blog" target="_blank" rel="noopener nofollow">Consensys — Security Research</a></li>
+      <li><a href="https://ethereum.org/guides/how-to-revoke-token-access/" target="_blank" rel="noopener nofollow">Ethereum.org — Revoke token approvals</a></li>
+      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Allowance management</a></li>
+      <li><a href="https://blog.openzeppelin.com/" target="_blank" rel="noopener nofollow">OpenZeppelin — Smart contract security</a></li>
     </ul>
 
     <div class="note">
-      <strong>About:</strong> Prepared by Crypto Finance Experts as a practical SEO-oriented knowledge base for <em>Staking Polygon (POL)</em>:
-      rewards, APY/APR, validators, calculator framework, safety, comparisons, and troubleshooting.
+      <strong>Tip:</strong> always cross-check the bridge URL and network settings using official Cronos sources before transferring size.
     </div>
   </section>
 
   <section class="card faq-section" aria-labelledby="faq">
-    <h2 id="faq">Staking Polygon (POL): Frequently Asked Questions</h2>
+    <h2 id="faq">Cronos Bridge FAQ: The Most Asked Questions (2026)</h2>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
-        <h3>What is Staking Polygon (POL) and how does it work?</h3><span class="faq-plus">+</span>
+        <h3>What is Cronos Bridge?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
-        <p><strong>Staking Polygon (POL)</strong> typically involves delegating POL to validators (or using a staking method that represents your stake) to earn rewards while supporting network operations.</p>
+        <p><strong>Cronos Bridge</strong> is an official bridge experience for transferring assets to and from <strong>Cronos EVM</strong>, with status tracking and explorer-verifiable transactions.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
-        <h3>Polygon staking rewards: what affects my yield?</h3><span class="faq-plus">+</span>
+        <h3>What is the official Cronos Bridge link?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
-        <p>Your net yield depends on gross rate, validator commission, validator performance/uptime, compounding behavior, and transaction costs for claim/compound/unstake actions.</p>
+        <p>Use <span class="inline-code">cronos.org/bridge</span> and bookmark it. Avoid clicking ads or random search results for bridges.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
-        <h3>Polygon staking APY / APR: which should I trust?</h3><span class="faq-plus">+</span>
+        <h3>What is Cronos EVM chain ID?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
-        <p>APR is a simple rate; APY assumes compounding. Trust the number that matches your actual compounding cadence and includes fees/commission in the net estimate.</p>
+        <p>Cronos Mainnet uses Chain ID <strong>25</strong>. Confirm settings in Cronos docs or Chainlist before adding the network.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
-        <h3>How to stake Polygon (POL) safely?</h3><span class="faq-plus">+</span>
+        <h3>What token pays gas on Cronos EVM?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
-        <p>Use official links (bookmarks), consider a hardware wallet for size, delegate a small test first, choose reputable validators, and keep a gas buffer for exits and recovery actions.</p>
+        <p>Gas on Cronos EVM is paid in <strong>CRO</strong>. Keep a buffer for approvals, retries, and recovery actions.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
-        <h3>Staking Polygon safe, legit, and trustworthy in 2026?</h3><span class="faq-plus">+</span>
+        <h3>Why does my wallet show zero after bridging?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
-        <p>Staking as a mechanism can be legitimate, but outcomes depend on method/provider risk, validator quality, and user security hygiene. Treat phishing and approvals as the top avoidable risks.</p>
+        <p>Most commonly: you’re on the wrong network in the wallet, the token isn’t added to your wallet UI, or you’re looking at a different address. Verify on Cronos Explorer first.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
-        <h3>Polygon validator list: what matters most?</h3><span class="faq-plus">+</span>
+        <h3>What’s the difference between Cronos POS Chain and Cronos EVM?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
-        <p>Look for stable commission, strong uptime/performance, transparency, and operational reputation. Avoid unknown operators offering eye-catching headline rates.</p>
+        <p>Cronos POS Chain is Cosmos-based, while Cronos EVM is EVM-compatible (Chain ID 25). Bridges and explorers differ depending on which environment you used.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
-        <h3>Staking Polygon vs liquid staking: which is better?</h3><span class="faq-plus">+</span>
+        <h3>Do I need to approve tokens before using Cronos Bridge?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
-        <p>Native staking is simpler but less liquid; liquid staking may be more flexible but adds smart-contract and market liquidity/peg risks. Choose based on your need for fast exits.</p>
+        <p>Often yes—ERC-20 style tokens may require an approval transaction before a bridge or dApp can move them. Approvals cost gas and should be treated carefully.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
-        <h3>Polygon staking calculator: what inputs do I need?</h3><span class="faq-plus">+</span>
+        <h3>What explorer should I use to verify Cronos Bridge transfers?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
-        <p>Stake amount, gross APR, validator commission, compounding frequency, and transaction costs. The goal is a net yield estimate, not a marketing APY.</p>
+        <p>Use <strong>Cronos Explorer</strong> (<span class="inline-code">explorer.cronos.org</span>) for Cronos EVM verification. Always verify tx status and token contracts there.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
-        <h3>Why can’t I unstake or withdraw right now?</h3><span class="faq-plus">+</span>
+        <h3>My bridge transaction is pending — should I resend?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
-        <p>Most commonly: an unbonding period is still running, a claim/finalize step is required, or you lack gas for the exit transaction.</p>
+        <p>Check the explorer first. If it’s genuinely pending, you may be able to speed up/replace it in your wallet. If explorer shows success, don’t resend—fix network/token visibility instead.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f10" id="b10">
+        <h3>Is it safe to bridge directly from a centralized exchange address?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f10" class="faq-content" role="region" aria-labelledby="b10">
+        <p>Generally avoid bridging from exchange deposit/withdraw addresses unless the bridge explicitly supports it. Use a self-custody wallet you control for predictable results.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f11" id="b11">
+        <h3>How do I avoid fake Cronos Bridge sites?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f11" class="faq-content" role="region" aria-labelledby="b11">
+        <p>Bookmark the official bridge URL, verify SSL/domain carefully, and cross-check links from official Cronos documentation pages.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f12" id="b12">
+        <h3>Can I revoke approvals on Cronos EVM?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f12" class="faq-content" role="region" aria-labelledby="b12">
+        <p>Yes. Use an allowance tool (e.g., Revoke.cash) while connected to Cronos EVM, and revoke approvals you no longer need to reduce risk.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f13" id="b13">
+        <h3>Why are fees higher than I expected?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f13" class="faq-content" role="region" aria-labelledby="b13">
+        <p>Fees often include multiple steps: token approval + bridge transaction + any retries. For small transfers, approval costs can dominate. Always budget gas buffers.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f14" id="b14">
+        <h3>What should I do before bridging a large amount?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f14" class="faq-content" role="region" aria-labelledby="b14">
+        <p>Do a small test transfer, verify it on the explorer, confirm token contracts, keep CRO gas buffers, and save tx hashes so you can troubleshoot quickly.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f15" id="b15">
+        <h3>Where can I find official Cronos network settings?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f15" class="faq-content" role="region" aria-labelledby="b15">
+        <p>Use Cronos Docs (MetaMask configuration) or Chainlist for Chain ID 25. Avoid random RPC lists from unknown sources.</p>
       </div>
     </div>
 
@@ -914,21 +857,53 @@
 </main>
 
 <footer class="container" role="contentinfo" style="padding:2rem 0; border-top:1px solid var(--line); margin-top:2rem">
-  <p class="muted">© 2026 Staking Polygon (POL) Guide. Educational content with safety-first operational focus.</p>
+  <p class="muted">© 2026 Cronos Bridge Guide. Educational content with a security-first operational focus.</p>
 </footer>
 
+<script>
+  // Accessible FAQ accordion
+  (function(){
+    const items = document.querySelectorAll('.faq-item');
+    items.forEach((item) => {
+      const btn = item.querySelector('.faq-button');
+      const panel = item.querySelector('.faq-content');
+      const plus = item.querySelector('.faq-plus');
 
+      if(!btn || !panel) return;
 
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
+        // close all
+        items.forEach((it) => {
+          const b = it.querySelector('.faq-button');
+          const p = it.querySelector('.faq-content');
+          const s = it.querySelector('.faq-plus');
+          if(!b || !p) return;
+          b.setAttribute('aria-expanded', 'false');
+          p.style.maxHeight = '0px';
+          p.classList.remove('open');
+          if(s) s.textContent = '+';
+        });
 
+        // open clicked if it was closed
+        if(!isOpen){
+          btn.setAttribute('aria-expanded', 'true');
+          panel.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          if(plus) plus.textContent = '–';
+        }
+      });
 
+      window.addEventListener('resize', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if(expanded){
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+</script>
 
-
-
-
-
-
-
-
-
-</body></html>
+</body>
+</html>
