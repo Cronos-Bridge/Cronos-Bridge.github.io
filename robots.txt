@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cronos-bridge.github.io/sitemap.xml

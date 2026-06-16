@@ -1,0 +1,107 @@
+{
+ "keyword": "cronos bridge",
+ "h1": "Cronos Bridge",
+ "brand": "Cronos Bridge",
+ "niche": "bridge",
+ "verb": "Bridge",
+ "title": "cronos bridge - Open App",
+ "meta_description": "cronos bridge opens the official Cronos EVM Bridge app for CRO and supported IBC transfers to Cronos networks.",
+ "palette": {
+  "mode": "dark",
+  "bg": "#061426",
+  "accent": "#1199FA",
+  "ink": "#FFFFFF"
+ },
+ "hero_h2": "Move CRO and supported IBC assets into Cronos EVM",
+ "hero_lead": "cronos bridge directs users to the official Cronos EVM Bridge web app for IBC transfers between Cronos POS, Cronos EVM, and supported Cosmos networks.",
+ "badge": "IBC Bridge",
+ "widget": {
+  "from": "CRO",
+  "from_net": "Cronos POS",
+  "to": "CRO",
+  "to_net": "Cronos EVM",
+  "action": "Open Cronos Bridge App"
+ },
+ "trust": [
+  "Official cronos.org route",
+  "IBC-based protocol",
+  "Network gas applies"
+ ],
+ "what_is": "Cronos Bridge is the official Cronos EVM Bridge web app for moving supported assets between Cronos POS, Cronos EVM, and selected Cosmos IBC networks; Cronos docs describe it as a decentralized protocol built on open-source <a href='https://docs.cronos.org/for-users/bridge/other_chain'>IBC infrastructure</a>.",
+ "how": [
+  {
+   "t": "Connect wallet",
+   "d": "Open the official app, connect a supported wallet, and approve the prompt in the wallet interface."
+  },
+  {
+   "t": "Choose route",
+   "d": "Select the origin network, destination network, and asset; verify the active wallet network and recipient address."
+  },
+  {
+   "t": "Enter amount",
+   "d": "Review the amount, displayed network fees, and destination details before continuing."
+  },
+  {
+   "t": "Confirm transfer",
+   "d": "Sign the wallet request, then track the bridge status in the app history or linked explorer view."
+  }
+ ],
+ "points": [
+  {
+   "h": "Official app first",
+   "p": "Use the <a href='https://cronos.org/bridge'>official web app</a> and verify the cronos.org domain before connecting a wallet."
+  },
+  {
+   "h": "IBC route coverage",
+   "p": "The app focuses on Cronos POS, Cronos EVM, and supported Cosmos IBC network transfers rather than generic exchange deposits."
+  },
+  {
+   "h": "On-chain visibility",
+   "p": "When transaction links are available, review activity with the <a href='https://explorer.cronos.com/'>Cronos Explorer</a>."
+  }
+ ],
+ "eeat": [
+  {
+   "text": "Cronos Bridge docs",
+   "url": "https://docs.cronos.org/for-users/bridge/other_chain"
+  },
+  {
+   "text": "Cronos bridge FAQ",
+   "url": "https://docs.cronos.org/for-users/bridge/faq"
+  },
+  {
+   "text": "Cronos Explorer",
+   "url": "https://explorer.cronos.com/"
+  }
+ ],
+ "faq": [
+  {
+   "q": "What is cronos bridge used for?",
+   "a": "It is used to move supported assets between Cronos POS, Cronos EVM, and selected Cosmos IBC networks through the official Cronos web app.",
+   "open": true
+  },
+  {
+   "q": "Is cronos bridge the official app?",
+   "a": "The official route listed by Cronos documentation is <a href='https://cronos.org/bridge'>https://cronos.org/bridge</a>; always verify the domain before connecting a wallet.",
+   "open": false
+  },
+  {
+   "q": "Which wallets work with cronos bridge?",
+   "a": "Cronos documentation references support for wallet flows including MetaMask, Keplr, Crypto.com Onchain Wallet, and Rabby, depending on route and environment.",
+   "open": false
+  },
+  {
+   "q": "Does cronos bridge charge fees?",
+   "a": "The <a href='https://docs.cronos.org/for-users/bridge/faq'>official FAQ</a> says the bridge service itself does not add a service fee, but network gas fees still apply.",
+   "open": false
+  },
+  {
+   "q": "How long does cronos bridge take?",
+   "a": "Cronos states that IBC transfers can take from about 1 minute to 1 hour depending on congestion, with unresolved transfers expected to complete or revert.",
+   "open": false
+  }
+ ],
+ "official_url": "https://cronos.org/bridge",
+ "official_domain": "cronos.org",
+ "footer_note": "Not the official app. Verify cronos.org before connecting a wallet. Educational content only; not financial advice."
+}
