@@ -1,0 +1,87 @@
+{
+  "key_facts": {
+    "Category": "Cronos ecosystem bridge",
+    "Network": "Cronos EVM",
+    "Token": "CRO",
+    "Compatibility": "EVM",
+    "Explorer": "Cronos Explorer"
+  },
+  "intent": [
+    {
+      "q": "Cronos Bridge supported chains and assets",
+      "a": "Cronos Bridge routes are centered on moving assets into and out of the Cronos ecosystem, including Cronos EVM and related Crypto.org/Cronos infrastructure, with supported assets varying by route. Users commonly look for CRO, stablecoins, and major DeFi assets, but the live bridge UI is the source of truth because token lists and routes can change. Cronos documentation includes a bridge section for users, and the official explorer helps verify destination transactions. Always confirm the source chain, destination chain, and output token before signing."
+    },
+    {
+      "q": "Cronos Bridge fees and CRO gas",
+      "a": "Cronos Bridge fees can include source-chain gas, destination-chain gas, and any bridge or relayer cost shown in the interface. CRO is the key gas asset for Cronos ecosystem transactions, so users should keep a small CRO balance after bridging. Cronos markets itself around low fees and EVM compatibility, but the exact cost still depends on route, token, contract execution, and network conditions. Before confirming, compare the wallet gas estimate with the bridge's received amount and check whether any minimum transfer applies."
+    },
+    {
+      "q": "Bridge CRO to Cronos EVM",
+      "a": "Bridging CRO to Cronos EVM is a common first step for users who want to use Cronos DeFi, NFTs, or on-chain apps. The key is choosing the correct source network, because CRO can exist across exchange accounts, Crypto.org-style addresses, and Cronos EVM addresses. A wallet address format mismatch can cause confusion even when the asset is related. Use an official bridge or exchange withdrawal route that explicitly lists Cronos EVM, then verify the receiving EVM address on Cronos Explorer."
+    },
+    {
+      "q": "Cronos Bridge pending transaction",
+      "a": "A Cronos Bridge transaction can appear pending while the source transaction confirms, while a relayer processes the cross-chain message, or while the destination explorer indexes the result. First check the source-chain transaction hash, then inspect the destination wallet on Cronos Explorer. If the transaction succeeded but the wallet does not show the token, manually add the destination token contract. Avoid resubmitting until you know whether the original transfer failed, because duplicate bridge transfers can waste gas or create two separate deposits."
+    },
+    {
+      "q": "Cronos Bridge vs exchange withdrawal",
+      "a": "Cronos Bridge is useful when funds are already in self-custody and need to move between supported on-chain networks. An exchange withdrawal may be simpler when funds are still on a centralized exchange and the exchange supports direct Cronos EVM withdrawals. The bridge gives more wallet control and route transparency; the exchange may abstract network complexity but adds platform custody and withdrawal limits. The best option depends on where the funds currently are, required asset, supported network label, fees, and urgency."
+    }
+  ],
+  "compare": {
+    "title": "Cronos Bridge vs exchange withdrawal",
+    "rows": [
+      ["Dimension", "Cronos Bridge", "Exchange withdrawal"],
+      ["Starting point", "Self-custody wallet", "Centralized exchange balance"],
+      ["Control", "User signs bridge transactions", "Exchange processes withdrawal"],
+      ["Key risk", "Wrong route or token contract", "Wrong network label or platform limits"],
+      ["Best for", "On-chain users moving assets to Cronos", "Users funding Cronos directly from an exchange"]
+    ]
+  },
+  "faq": [
+    {
+      "q": "What is Cronos Bridge used for?",
+      "a": "Cronos Bridge is used to move supported assets into and out of the Cronos ecosystem so users can access Cronos EVM apps, DeFi, NFTs, and transfers. It is not a universal bridge for every token. Always check the live bridge list for the source chain, destination chain, and asset you want."
+    },
+    {
+      "q": "Do I need CRO after using Cronos Bridge?",
+      "a": "Yes, users generally need CRO to pay gas for transactions on Cronos EVM. If you bridge only a token such as a stablecoin, you may still need CRO before you can swap, approve, or transfer it. Keep a small gas balance or use a route that provides gas funding."
+    },
+    {
+      "q": "Can I bridge from Ethereum to Cronos?",
+      "a": "Cronos ecosystem routes can include Ethereum-facing transfers, but availability depends on the official bridge interface and current supported assets. If Ethereum is the source, budget for Ethereum gas as well as any destination gas needs. Verify the output token on Cronos Explorer before using it in a protocol."
+    },
+    {
+      "q": "Why does my Cronos address look like Ethereum?",
+      "a": "Cronos EVM uses Ethereum-style 0x addresses because it is EVM-compatible. That does not mean every Ethereum token or bridge route is automatically supported. The network selected in your wallet and the token contract on Cronos determine whether the funds are usable."
+    },
+    {
+      "q": "Can I send CRO directly from Crypto.com to Cronos?",
+      "a": "Many users fund Cronos through Crypto.com routes, but the exact withdrawal network label must match the destination you intend to use. If you need Cronos EVM, select the Cronos-compatible withdrawal option and verify the address format. A small test withdrawal is prudent when using a new route."
+    },
+    {
+      "q": "How do I check a Cronos Bridge transfer?",
+      "a": "Use the source-chain explorer for the sending transaction and Cronos Explorer for the destination address. If the bridge transaction succeeded but the wallet balance is missing, add the token contract manually. If neither explorer shows progress, check the bridge status page or official support resources before retrying."
+    }
+  ],
+  "niche": {
+    "type": "bridge",
+    "asset": "CRO",
+    "receive": "CRO on Cronos",
+    "supported_networks": ["Ethereum", "Cronos EVM", "Cronos POS"]
+  },
+  "authority": [
+    { "text": "Cronos official website", "url": "https://cronos.com/" },
+    { "text": "Cronos EVM documentation", "url": "https://docs.cronos.org/" },
+    { "text": "Cronos Explorer", "url": "https://explorer.cronos.com/" },
+    { "text": "Cronos GitHub", "url": "https://github.com/crypto-org-chain" },
+    { "text": "Cronos on CoinGecko", "url": "https://www.coingecko.com/en/coins/cronos" },
+    { "text": "Cronos on DeFiLlama", "url": "https://defillama.com/chain/Cronos" }
+  ],
+  "sameAs": [
+    "https://x.com/cronos_chain",
+    "https://github.com/crypto-org-chain",
+    "https://www.coingecko.com/en/coins/cronos",
+    "https://defillama.com/chain/Cronos"
+  ]
+}
