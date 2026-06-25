@@ -1,22 +1,24 @@
 {
- "name": "Cronos Bridge",
- "short_name": "Cronos Bridge",
- "start_url": "/",
- "display": "standalone",
- "background_color": "#FFFFFF",
- "theme_color": "#FFFFFF",
- "icons": [
-  {
-   "src": "static/icon-192.png",
-   "sizes": "192x192",
-   "type": "image/png",
-   "purpose": "any maskable"
-  },
-  {
-   "src": "static/icon-512.png",
-   "sizes": "512x512",
-   "type": "image/png",
-   "purpose": "any maskable"
-  }
- ]
+  "name": "Cronos Bridge",
+  "short_name": "Cronos Bridge",
+  "description": "Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.",
+  "start_url": "https://cronos-bridge.github.io/",
+  "scope": "https://cronos-bridge.github.io/",
+  "display": "standalone",
+  "background_color": "#F7F8FA",
+  "theme_color": "#103FA6",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
