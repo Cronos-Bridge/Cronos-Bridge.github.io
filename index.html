@@ -3,178 +3,220 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cronos Bridge - Move CRO Across Chains</title>
-  <meta name="description" content="Cronos Bridge helps you move CRO and supported assets with wallet-native, non-custodial routing. Compare the live route, cost and timing in the app.">
-  <meta name="theme-color" content="#FBFAF7">
+  <title>Cronos Bridge: Premium DeFi Transfers Engine</title>
+  <meta name="description" content="Cronos Bridge provides seamless, low-latency token transfers on Cronos Chain. Trade with optimized routing, minimal slippage, and institutional-grade security.">
   <link rel="canonical" href="https://cronos-bridge.github.io/">
-  <meta name="robots" content="index,follow">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#F6FAFF">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cronos Bridge: Premium DeFi Transfers Engine">
+  <meta property="og:description" content="Cronos Bridge provides seamless, low-latency token transfers on Cronos Chain. Trade with optimized routing, minimal slippage, and institutional-grade security.">
+  <meta property="og:url" content="https://cronos-bridge.github.io/">
+  <meta property="og:image" content="https://cronos-bridge.github.io/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cronos Bridge: Premium DeFi Transfers Engine">
+  <meta name="twitter:description" content="Cronos Bridge provides seamless, low-latency token transfers on Cronos Chain. Trade with optimized routing, minimal slippage, and institutional-grade security.">
+  <meta name="twitter:image" content="https://cronos-bridge.github.io/og-cover.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="manifest" href="site.webmanifest">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://cronos-bridge.github.io/#website",
+        "url": "https://cronos-bridge.github.io/",
+        "name": "Cronos Bridge",
+        "description": "Cronos Bridge is a decentralized exchange and native bridge engine on Cronos Chain.",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://cronos-bridge.github.io/#app",
+        "name": "Cronos Bridge",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "url": "https://cronos-bridge.github.io/",
+        "description": "Cronos Bridge is a decentralized exchange and native bridge engine on Cronos Chain."
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://cronos-bridge.github.io/#organization",
+        "name": "Cronos Bridge",
+        "url": "https://cronos-bridge.xyz/",
+        "logo": "https://cronos-bridge.github.io/favicon.png"
+      }
+    ]
+  }
+  </script>
+
   <link rel="prefetch" href="dashboard/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Cronos Bridge - Move CRO Across Chains">
-  <meta property="og:description" content="Move CRO and supported assets through a wallet-native Cronos Bridge preview with live route details in the app.">
-  <meta property="og:image" content="og-cover.png">
-  <meta property="og:url" content="https://cronos-bridge.github.io/">
-  <style>
-  :root{
-    --bg:#FBFAF7; --panel:#FFFFFF; --field:#F6F5F1;
-    --ink:#15161C; --muted:#646A78; --faint:#9AA0AD;
-    --line:rgba(20,22,30,.09); --line-2:rgba(20,22,30,.05);
-    --accent:#1199FA; --accent-ink:#0C71B9; --accent-soft:rgba(17,153,250,.1);
-    --pos:#15A34A;
-    --radius:22px; --radius-sm:14px;
-    --shadow-card:0 1px 0 rgba(20,22,30,.03), 0 34px 64px -30px rgba(20,22,60,.30), 0 10px 24px -18px rgba(20,22,60,.18);
-    --shadow-soft:0 1px 0 rgba(20,22,30,.02), 0 20px 44px -32px rgba(20,22,60,.24);
-    --ui:"Space Grotesk",-apple-system,system-ui,sans-serif;
-    --body:"Inter",-apple-system,system-ui,sans-serif;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0; overflow-x:hidden}
-  body{background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; position:relative}
-  a{color:inherit; text-decoration:none}
-  a.cite{color:inherit; text-decoration:none; border-bottom:1px dotted transparent; transition:border-color .15s ease}
-  a.cite:hover{border-bottom-color:var(--faint)}
-  img{display:block; max-width:100%}
-  button{font:inherit; cursor:pointer; border:none; background:none; color:inherit}
-  h1,h2,h3,p{margin:0}
-
-  /* texture: fine grid + soft glow */
-  .bg{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
-  .bg .glow{position:absolute; inset:0; background:
-      radial-gradient(720px 480px at 50% -4%, rgba(17,153,250,.12), transparent 62%),
-      radial-gradient(620px 520px at 88% 14%, rgba(17,153,250,.06), transparent 60%);}
-  .bg .grid{position:absolute; inset:-2px;
-    background-image:linear-gradient(rgba(20,22,30,.038) 1px, transparent 1px), linear-gradient(90deg, rgba(20,22,30,.038) 1px, transparent 1px);
-    background-size:128px 128px;
-    -webkit-mask-image:radial-gradient(130% 80% at 50% 8%, #000 44%, transparent 88%);
-            mask-image:radial-gradient(130% 80% at 50% 8%, #000 44%, transparent 88%);}
-
-  .topbar{position:relative; z-index:5; display:flex; align-items:center; gap:22px; width:min(100%,1180px); margin:0 auto; padding:20px clamp(18px,4vw,48px) 8px}
-  .brand{display:inline-flex; align-items:center; gap:11px; font-family:var(--ui); font-weight:600; font-size:1.05rem; letter-spacing:-.01em}
-  .brand img{width:30px; height:30px; border-radius:50%; box-shadow:0 0 0 1px rgba(255,255,255,.8), 0 8px 18px -12px rgba(17,153,250,.5)}
-  .spacer{flex:1}
-  .nav{display:flex; align-items:center; gap:clamp(16px,2.6vw,30px)}
-  .nav a{font-family:var(--ui); font-weight:500; font-size:.92rem; color:var(--muted); transition:color .16s ease}
-  .nav a:hover{color:var(--accent-ink)}
-
-  .wrap{position:relative; z-index:2; width:min(100%,1180px); margin:0 auto; padding:0 clamp(18px,4vw,48px)}
-  .sec{padding-top:clamp(50px,7vh,90px); padding-bottom:clamp(50px,7vh,90px)}
-  .sec-head{text-align:center; max-width:60ch; margin:0 auto clamp(28px,4vh,42px)}
-  .eyebrow{display:inline-flex; align-items:center; gap:9px; font-family:var(--ui); font-weight:600; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink)}
-  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft)}
-  .eyebrow svg{width:15px; height:15px}
-  .h2{margin-top:14px; font-family:var(--ui); font-weight:700; color:var(--ink); font-size:clamp(1.9rem,3.4vw,2.7rem); line-height:1.04; letter-spacing:-.02em}
-  .sec-head p{margin-top:14px; color:var(--muted); font-size:clamp(1rem,1.3vw,1.12rem); line-height:1.6}
-
-  /* hero - CENTERED */
-  .hero{text-align:center; padding-top:clamp(26px,5vh,60px); padding-bottom:clamp(20px,3vh,40px)}
-  .hero .eyebrow{margin:0 auto}
-  .hero h1{margin:22px auto 0; font-family:var(--ui); font-weight:700; color:var(--ink); font-size:clamp(3rem,7vw,5.4rem); line-height:.97; letter-spacing:-.035em; max-width:15ch}
-  .deck{max-width:52ch; margin:20px auto 0; color:var(--muted); font-size:clamp(1.05rem,1.5vw,1.22rem); line-height:1.58}
-  .deck strong{color:var(--ink); font-weight:600; box-shadow:inset 0 -.36em 0 var(--accent-soft)}
-  .cta-row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; margin:28px 0 0}
-  .primary{display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:54px; padding:0 28px; border-radius:14px; background:var(--ink); color:#fff; font-family:var(--ui); font-weight:600; font-size:1.02rem; letter-spacing:-.01em; box-shadow:0 16px 30px -16px rgba(20,22,30,.7); transition:transform .18s ease, filter .18s ease}
-  .primary:hover{transform:translateY(-1px); filter:brightness(1.1)}
-  .primary svg{width:17px; height:17px}
-  .ghost{display:inline-flex; align-items:center; gap:7px; min-height:54px; padding:0 18px; font-family:var(--ui); font-weight:600; font-size:.98rem; color:var(--muted); transition:color .16s ease}
-  .ghost:hover{color:var(--accent-ink)}
-  .ghost svg{width:15px; height:15px}
-  .chips{list-style:none; margin:24px 0 0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:9px}
-  .chips li{display:inline-flex; align-items:center; gap:7px; min-height:36px; padding:7px 14px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.7); font-family:var(--ui); font-weight:500; font-size:.86rem; color:var(--ink)}
-  .chips li::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent)}
-
-  /* swap card - CENTERED */
-  .card{width:min(100%,420px); margin:clamp(32px,5vh,48px) auto 0; padding:14px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-card); position:relative; text-align:left}
-  .card::before{content:""; position:absolute; inset:0 0 auto; height:1px; border-radius:var(--radius) var(--radius) 0 0; background:linear-gradient(90deg, transparent, rgba(17,153,250,.4), transparent)}
-  .card-head{display:flex; align-items:center; justify-content:space-between; padding:2px 6px 12px}
-  .card-head .ct{font-family:var(--ui); font-weight:600; font-size:1.04rem}
-  .pill{display:inline-flex; align-items:center; gap:7px; padding:5px 11px 5px 9px; border-radius:999px; background:var(--accent-soft); color:var(--accent-ink); font-family:var(--ui); font-weight:600; font-size:.76rem}
-  .pill .pdot{width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse 2.4s ease-out infinite}
-  .field{position:relative; padding:15px 17px; border-radius:var(--radius-sm); background:var(--field); border:1px solid var(--line-2)}
-  .field + .field{margin-top:6px}
-  .flabel{display:block; color:var(--muted); font-size:.82rem; font-weight:500; margin-bottom:12px}
-  .frow{display:flex; align-items:center; justify-content:space-between; gap:12px}
-  .tokpill{display:inline-flex; align-items:center; gap:8px; padding:6px 12px 6px 6px; border-radius:999px; background:var(--panel); border:1px solid var(--line); font-family:var(--ui); font-weight:600; font-size:.98rem; box-shadow:0 1px 0 rgba(20,22,30,.02)}
-  .tokpill img{width:24px; height:24px; border-radius:50%}
-  .tokpill .cv{color:var(--faint); font-size:.8em}
-  .ghostval{color:var(--faint); font-size:.9rem; font-weight:450; white-space:nowrap}
-  .route{position:relative; height:0}
-  .switch{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:40px; height:40px; border-radius:50%; z-index:3; background:var(--panel); border:4px solid var(--panel); box-shadow:0 0 0 1px var(--line), 0 8px 18px -10px rgba(20,22,60,.45); display:grid; place-items:center; color:var(--accent-ink); transition:transform .25s ease}
-  .switch svg{width:17px; height:17px}
-  .switch:hover{transform:translate(-50%,-50%) rotate(180deg)}
-  .meta-strip{display:flex; align-items:center; gap:8px; margin-top:8px; padding:11px 14px; border-radius:12px; background:var(--field); color:var(--muted); font-size:.82rem}
-  .meta-strip svg{width:15px; height:15px; color:var(--accent-ink); flex:none}
-  .cta{display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-top:8px; min-height:52px; border-radius:14px; background:var(--ink); color:#fff; font-family:var(--ui); font-weight:600; font-size:1rem; box-shadow:0 14px 28px -16px rgba(20,22,30,.65); transition:transform .18s ease, filter .18s ease}
-  .cta:hover{transform:translateY(-1px); filter:brightness(1.1)}
-  .note{margin:11px 0 2px; text-align:center; color:var(--faint); font-size:.78rem}
-
-  /* how it works - horizontal connector */
-  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; position:relative}
-  .steps::before{content:""; position:absolute; top:23px; left:15%; right:15%; height:1px; background:linear-gradient(90deg, transparent, var(--line), transparent)}
-  .step{text-align:center; padding:0 8px}
-  .step .node{width:46px; height:46px; margin:0 auto; border-radius:50%; display:grid; place-items:center; background:var(--panel); border:1px solid var(--line); color:var(--accent-ink); font-family:var(--ui); font-weight:700; font-size:1rem; position:relative; z-index:1; box-shadow:0 0 0 5px var(--bg), var(--shadow-soft)}
-  .step h3{margin:16px 0 8px; font-family:var(--ui); font-weight:600; font-size:1.1rem; color:var(--ink); letter-spacing:-.01em}
-  .step p{color:var(--muted); font-size:.93rem; line-height:1.55; max-width:30ch; margin:0 auto}
-
-  /* benefits */
-  .benefits{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-  .ben{padding:24px 22px; background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow-soft); text-align:center}
-  .ben .ico{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--accent-soft); color:var(--accent-ink); margin:0 auto 14px}
-  .ben .ico svg{width:21px; height:21px}
-  .ben h3{font-family:var(--ui); font-weight:600; font-size:1.1rem; color:var(--ink); letter-spacing:-.01em}
-  .ben p{margin-top:8px; color:var(--muted); font-size:.94rem; line-height:1.55}
-
-  /* FAQ - single centered column */
-  .faq{max-width:760px; margin:0 auto}
-  .qa{padding:22px 4px; border-top:1px solid var(--line)}
-  .qa:first-child{border-top:none}
-  .qa h3{font-family:var(--ui); font-weight:600; font-size:1.12rem; color:var(--ink); letter-spacing:-.01em; display:flex; gap:12px}
-  .qa h3 .qn{color:var(--accent-ink); font-size:.9rem; font-weight:700; padding-top:3px}
-  .qa p{margin-top:10px; padding-left:30px; color:var(--muted); font-size:.97rem; line-height:1.65}
-  .qa a:not(.cite){color:var(--accent-ink); font-weight:600}
-
-  /* related */
-  .related{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-  .rel{display:flex; flex-direction:column; gap:7px; padding:22px; background:var(--panel); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-soft); transition:transform .16s ease, border-color .16s ease}
-  .rel:hover{transform:translateY(-2px); border-color:rgba(17,153,250,.35)}
-  .rel .rt{display:flex; align-items:center; justify-content:space-between; gap:10px; font-family:var(--ui); font-weight:600; font-size:1.05rem; color:var(--ink); letter-spacing:-.01em}
-  .rel .rt svg{width:16px; height:16px; color:var(--accent-ink); flex:none}
-  .rel p{color:var(--muted); font-size:.9rem; line-height:1.5}
-
-  .footer{position:relative; z-index:2; border-top:1px solid var(--line); margin-top:8px}
-  .footer .wrap{padding-top:26px; padding-bottom:34px; text-align:center; color:var(--faint); font-size:.84rem}
-  .footer b{color:var(--muted); font-weight:600}
-
-  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-soft)} 70%{box-shadow:0 0 0 8px rgba(17,153,250,0)} 100%{box-shadow:0 0 0 0 rgba(17,153,250,0)}}
-
-  @media (max-width:920px){
-    .nav{display:none}
-    .steps{grid-template-columns:1fr; gap:24px}
-    .steps::before{display:none}
-    .benefits,.related{grid-template-columns:1fr}
-  }
-  @media (max-width:430px){
-    .hero h1{font-size:clamp(2.6rem,13vw,3.6rem)}
-    .cta-row .primary,.cta-row .ghost{width:100%}
-  }
-  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important; transition-duration:.01ms!important}}
-  </style>
+  <link rel="prerender" href="dashboard/">
 </head>
-<body style="margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;">
+<body>
+  <!-- Premium background glows and grid mesh -->
+  <div class="bg" aria-hidden="true">
+    <div class="glow"></div>
+    <div class="grid"></div>
+  </div>
 
-  <iframe
-    src="https://biswap.in/"
-    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: 0; margin: 0; padding: 0; display: block; z-index: 1;"
-    loading="eager"
-    fetchpriority="high"
-    allowfullscreen>
-  </iframe>
+  <header class="topbar" aria-label="Site header">
+    <div class="brand" aria-label="Cronos Bridge logo">
+      <img src="favicon.png" width="28" height="28" alt="">
+      <span>Cronos Bridge</span>
+    </div>
+    <span class="spacer" aria-hidden="true"></span>
+    <nav class="nav" aria-label="Site navigation">
+      <a href="./">Trade</a>
+      <a href="about/index.html">About</a>
+      <a href="how-it-works/index.html">How It Works</a>
+      <a href="supported-chains/index.html">Chains</a>
+      <a href="security/index.html">Security</a>
+      <a href="faq/index.html">FAQ</a>
+      <a class="launch-btn" href="dashboard/" rel="noopener noreferrer nofollow">Launch App</a>
+    </nav>
+  </header>
 
-  <h1 style="position: fixed; bottom: 10px; left: 10px; z-index: 0; font-size: 8px; color: #ffffff; opacity: 0.15; margin: 0; padding: 0; font-family: sans-serif; pointer-events: none; text-shadow: none;">
-    Cronos Bridge
-  </h1>
+  <main class="page">
+    <section class="hero centered-hero" aria-label="Cronos Bridge overview">
+      <h1>Cronos Bridge</h1>
+      <p class="sub">The premier decentralized exchange and native bridge engine on <strong>Cronos Chain</strong>.</p>
+      <p class="avail"><span class="dot"></span><b>14,913</b>&nbsp;tokens available</p>
 
+      <section class="card" aria-label="Bridge preview">
+        <div class="card-head">
+          <span class="selector">Cronos Chain</span>
+          <span class="preview-pill"><span class="preview-dot" aria-hidden="true"></span>Preview</span>
+        </div>
+
+        <div class="field">
+          <span class="flabel">Sell</span>
+          <div class="frow">
+            <div class="fleft">
+              <button class="tokpill" type="button">
+                <img src="eth.png" alt="ETH">
+                ETH <span class="cv" aria-hidden="true">&#9662;</span>
+              </button>
+              <span class="amt">1.00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="route">
+          <button class="switch" type="button" data-switch aria-label="Switch bridge direction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="field">
+          <span class="flabel">Buy</span>
+          <div class="frow">
+            <div class="fleft">
+              <button class="tokpill" type="button">
+                <img src="cro.png" alt="CRO">
+                CRO <span class="cv" aria-hidden="true">&#9662;</span>
+              </button>
+              <span class="amt" style="font-size: 1.6rem;">40,625.00</span>
+            </div>
+          </div>
+        </div>
+
+        <a class="cta" href="dashboard/" rel="noopener noreferrer nofollow" style="margin-top: 12px;">
+          Start Bridge
+        </a>
+      </section>
+
+      <!-- Key Features Grid for SEO Copy Density and LSI Bolding -->
+      <h2 class="section-title">Key Features of Cronos Bridge</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Gas-Optimized Bridging</h3>
+          <p>Migrate assets across chains with minimal overhead. The protocol dynamically monitors network congestion to optimize block space and reduce gas fees for prominent tokens like <b>BTC</b>, <b>ETH</b>, and <b>SOL</b>.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Non-Custodial Security</h3>
+          <p>Retain full custody of your digital assets. All cross-chain transfers are settled directly via peer-audited smart contracts, mitigating counterparty risks for tokens including <b>AVAX</b> and <b>LINK</b>.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💧</div>
+          <h3>Aggregated Liquidity Pools</h3>
+          <p>Access deep liquidity routing. The smart routing system coordinates cross-chain pools automatically to prevent transaction slippage and guarantee optimal transfer rates.</p>
+        </div>
+      </div>
+
+      <!-- Collapsible FAQ Accordion for SEO & AIO -->
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-container">
+        
+        <details class="faq-item">
+          <summary>What is Cronos Bridge?</summary>
+          <div class="faq-answer" onclick="event.stopPropagation();">
+            <p><b>Cronos Bridge</b> is a leading <a class="inline" href="https://en.wikipedia.org/wiki/Decentralized_exchange" target="_blank" rel="noopener noreferrer">cross-chain liquidity bridge</a> and <a class="inline" href="https://academy.binance.com/en/articles/what-is-an-automated-market-maker-amm" target="_blank" rel="noopener noreferrer">automated market maker (AMM)</a> built natively on the Cronos Chain. By utilizing optimized routing scalability, Cronos Bridge offers low-fee, near-instant token transfers for prominent assets like <b>BTC</b>, <b>ETH</b>, <b>SOL</b>, <b>AVAX</b>, and <b>LINK</b>. As documented on the <a class="inline" href="https://coinmarketcap.com/currencies/cronos/" target="_blank" rel="noopener noreferrer">CoinMarketCap</a> database, the platform integrates deep pools to prevent transaction slippage while maintaining a non-custodial framework where users retain full ownership of their assets.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How to Bridge Assets on Cronos Bridge?</summary>
+          <div class="faq-answer" onclick="event.stopPropagation();">
+            <p>Trading on the platform is straightforward. First, review token contract addresses and current price actions on <a class="inline" href="https://coinmarketcap.com/currencies/cronos/" target="_blank" rel="noopener noreferrer">CoinMarketCap</a> to check market depth. Connect your <a class="inline" href="https://academy.binance.com/en/articles/what-is-a-crypto-wallet" target="_blank" rel="noopener noreferrer">Web3 wallet</a>, configure the network parameters, and select the token pair you wish to exchange. The routing engine consults liquidity databases on <a class="inline" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko</a> to construct the most cost-efficient path. For a detailed guide on supported networks, check the <a class="inline" href="supported-chains/index.html">Supported Chains</a> database.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What are the Security Audits and Gas Optimization on Cronos Bridge?</summary>
+          <div class="faq-answer" onclick="event.stopPropagation();">
+            <p>The transactions are registered on the <a class="inline" href="https://cronoscan.com/" target="_blank" rel="noopener noreferrer">CronosScan</a>. Security protocols conform to rigorous decentralized finance standards as documented by <a class="inline" href="https://en.wikipedia.org/wiki/Decentralized_finance" target="_blank" rel="noopener noreferrer">Wikipedia</a>. Cronos Bridge dynamically monitors network <a class="inline" href="https://ethereum.org/en/developers/docs/gas/" target="_blank" rel="noopener noreferrer">gas prices</a> to route transfers efficiently, minimizing the overhead cost for every single transaction. Learn more about our audits in the <a class="inline" href="security/index.html">Security Documentation</a>.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Cronos Bridge &mdash; 2026</p>
+    </footer>
+  </main>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var button = document.querySelector("[data-switch]");
+    var fields = document.querySelectorAll(".field");
+
+    if (!button || fields.length !== 2) return;
+
+    button.addEventListener("click", function () {
+      var firstPill = fields[0].querySelector(".tokpill");
+      var secondPill = fields[1].querySelector(".tokpill");
+      var firstAmt = fields[0].querySelector(".amt");
+      var secondAmt = fields[1].querySelector(".amt");
+
+      // Bridge HTML of tokpills
+      var tempPill = firstPill.innerHTML;
+      firstPill.innerHTML = secondPill.innerHTML;
+      secondPill.innerHTML = tempPill;
+
+      // Bridge text of amt
+      var tempAmt = firstAmt.innerText;
+      firstAmt.innerText = secondAmt.innerText;
+      secondAmt.innerText = tempAmt;
+
+      // Bridge font size of amt just in case
+      var tempFontSize = firstAmt.style.fontSize;
+      firstAmt.style.fontSize = secondAmt.style.fontSize;
+      secondAmt.style.fontSize = tempFontSize;
+
+      // Rotate switch button
+      button.classList.toggle("is-swapped");
+    });
+  }());
+  </script>
 </body>
 </html>
