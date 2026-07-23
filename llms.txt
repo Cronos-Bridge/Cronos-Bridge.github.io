@@ -1,70 +1,31 @@
 # Cronos Bridge
-> An independent, non-custodial informational dashboard for understanding asset-transfer routes between Cronos EVM, Cronos POS, and supported external networks.
 
-## What is Cronos Bridge
-Cronos Bridge commonly refers to Cronos’s official cross-chain interface and underlying protocols for moving assets between separate blockchains. Its canonical route connects Cronos POS with Cronos EVM without using a centralized exchange. The dashboard is independent, does not represent Cronos Labs, and does not hold user funds or private keys. Third-party bridges such as Stargate, Relay, and Symbiosis support additional networks through different contracts and trust models. Cronos zkEVM has a separate bridge and should not be confused with the Cronos POS–Cronos EVM bridge.
-
-## How it works
-1. Select the source chain, destination chain, supported asset, amount, and receiving wallet.
-2. Connect compatible self-custody wallets and review the displayed route, addresses, and network costs.
-3. Sign the source-chain transaction; the website never needs the wallet’s seed phrase or private key.
-4. On native Cronos routes, IBC relayers submit proofs between chains, while Cronos modules escrow, release, or convert the asset into its destination representation.
-5. After source confirmation, relay, and destination execution, verify the resulting transaction and balance with the relevant explorers.
+> Cronos Bridge moves assets between Cronos EVM, Cronos POS, and supported external networks directly from your wallet, without exchange custody.
 
 ## Key facts
-- Cronos EVM mainnet uses EIP-155 chain ID `25` and Cosmos chain ID `cronosmainnet_25-1`.
-- Cronos POS mainnet uses Cosmos chain ID `crypto-org-chain-mainnet-1`.
-- CRO is the native gas token on both Cronos EVM and Cronos POS.
-- Cronos EVM supports Ethereum-style `0x` accounts and EVM-compatible token contracts.
-- Cronos POS uses Cosmos SDK, Bech32 `cro` addresses, and IBC.
-- Native Cronos bridging uses IBC light-client proofs and external relayers rather than exchange custody.
-- Relayers provide message delivery, while destination chains independently verify submitted proofs.
-- Supported routes and assets are allow-listed; the live official interface is authoritative.
-- Completion depends on both chains, confirmations, relayer availability, and channel health.
+- Route: source chain  destination chain
+- Deposit: typically minutes
+- Withdraw: may need proving/finalization
+- Gas: native asset on both chains
+- Custody: Non-custodial — your wallet signs
+- Verify: Use the official contracts; beware fake bridge sites
 
-## Common questions
-
-### Is Cronos Bridge safe?
-It avoids custodial exchange risk, but bridge, wallet, contract, chain, and user-error risks remain. Verify the domain, networks, asset, and recipient, then consider a small test transfer.
-
-### Who controls my funds?
-Your wallet controls the signing keys. Protocol modules or contracts may temporarily escrow, burn, mint, or release assets as required by the selected route.
-
-### What fees apply?
-Users pay applicable source-chain gas or transaction fees and any route-specific costs shown before confirmation. Keep enough native gas on the source chain.
-
-### How long does bridging take?
-Native IBC transfers often complete after a short sequence of confirmations and relay transactions. Congestion, relayer interruptions, expired packets, or channel problems can cause delays.
-
-### Which assets and chains are supported?
-CRO between Cronos POS and Cronos EVM is the canonical route. Selected IBC assets and third-party EVM routes may also appear; check the live interface before sending.
-
-### How do I start?
-Use a compatible self-custody wallet, hold the supported asset plus gas, select the route, verify the recipient, review the transaction, and sign only inside the wallet.
-
-### What are the main risks?
-Wrong-network transfers, unsupported tokens, malicious websites, incorrect recipients, contract or module defects, compromised wallets, relayer delays, and differences between native and bridged token representations.
+## On this page
+- [What is Cronos Bridge?](https://cronos-bridge.github.io/#what)
+- [How bridging works](https://cronos-bridge.github.io/#how)
+- [Depositing to the destination](https://cronos-bridge.github.io/#deposit)
+- [Withdrawing back](https://cronos-bridge.github.io/#withdraw)
+- [Time and fees](https://cronos-bridge.github.io/#fees)
+- [Is Cronos Bridge safe?](https://cronos-bridge.github.io/#safety)
+- [Problems and fixes](https://cronos-bridge.github.io/#troubleshoot)
+- [FAQ](https://cronos-bridge.github.io/#faq)
 
 ## App
-- Dashboard: https://cronos-bridge.github.io/
-- App: https://cronos-bridge.github.io/dashboard/
+- [Cronos Bridge dashboard](https://cronos-bridge.github.io/)
+- [Open the app](https://cronos-bridge.github.io/dashboard/)
 
-## Official resources
-Official Cronos EVM Bridge: https://cronos.org/bridge/
-Cronos EVM Documentation: https://docs.cronos.org/
-Cronos POS Documentation: https://docs.cronos-pos.org/
-Official Bridge Architecture Explainer: https://blog.cronos.org/p/bridging-your-funds-into-cronos-on-mainnet-launch-day-5944207fdcef/
-Cronos EVM Source Code: https://github.com/crypto-org-chain/cronos
-Cronos POS Source Code: https://github.com/crypto-org-chain/chain-main
-Cronos Documentation Source: https://github.com/crypto-org-chain/cronos-docs
-Official Cronos X: https://x.com/cronos_chain
-
-## Data & references
-Cronos EVM Explorer: https://explorer.cronos.com/
-Cronos POS on Mintscan: https://www.mintscan.io/crypto-org
-Cronos Chain Settings on ChainList: https://chainlist.org/chain/25
-IBC Protocol Overview: https://docs.cosmos.network/ibc/latest/ibc/overview
-IBC Standards Repository: https://github.com/cosmos/ibc
-Cronos Bridged Assets on DefiLlama: https://defillama.com/bridged/cronos
-Cronos Network Data on DefiLlama: https://defillama.com/chain/cronos
-CRO Market Reference on CoinGecko: https://www.coingecko.com/en/coins/cronos
+## Sources
+- [docs.cronos.com](https://docs.cronos.com/for-users/bridge/other_chain)
+- [ibcprotocol.dev](https://ibcprotocol.dev/how-ibc-works)
+- [github.com](https://github.com/crypto-org-chain/cronos)
+- [coingecko.com](https://www.coingecko.com/en/coins/cronos)
