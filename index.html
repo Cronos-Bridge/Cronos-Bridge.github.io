@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cronos Bridge — Dashboard</title>
-  <meta name="description" content="How the Cronos Bridge moves assets between Cronos EVM, Cronos POS, and external chains: routes, timing, fees, safety checks, and fixes for stuck transfers.">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="theme-color" content="#f5f6f8">
-  <link rel="canonical" href="https://cronos-bridge.github.io/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="image_src" href="og-cover.png">
-  <link rel="preconnect" href="https://api.coingecko.com" crossorigin>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Cronos Bridge — Dashboard</title>
+<meta content="How the Cronos Bridge moves assets between Cronos EVM, Cronos POS, and external chains: routes, timing, fees, safety checks, and fixes for stuck transfers." name="description"/>
+<meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
+<meta content="#f5f6f8" name="theme-color"/>
+<link href="https://cronos-bridge.github.io/" rel="canonical"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="og-cover.png" rel="image_src"/>
+<link crossorigin="" href="https://api.coingecko.com" rel="preconnect"/>
+<style>
 /* Cronos Bridge — independent single-page hub. */
 :root {
   color-scheme: light;
@@ -112,7 +113,7 @@ html:not(.js) .menu-btn { display: none; }
 
 /* ───────── main / topbar ───────── */
 .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.topbar { position: sticky; top: 0; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 11px 26px; border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); }
+.topbar { position: relative; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 21px 26px; border-bottom: 0; background: transparent; }
 .topbar-right { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
 .mode-switch { display: inline-flex; align-items: center; gap: 10px; }
 .ms-label { font-size: 13.5px; font-weight: 700; color: var(--muted); transition: color 150ms var(--ease); }
@@ -176,6 +177,44 @@ html:not(.js) .menu-btn { display: none; }
 .content .lead-in { padding: clamp(4px, 1vh, 12px) 0 clamp(10px, 2.5vh, 22px); }
 .content .lead-in > p { margin: 0 0 16px; font-size: 15px; line-height: 1.66; color: var(--text); }
 .content .lead-in > p strong { color: var(--ink); font-weight: 700; }
+/* premium feature card (modern-site feel) */
+.content .lead-in .feat{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;background:linear-gradient(165deg,#141824,#0b0e15);border:1px solid rgba(255,255,255,.09);border-radius:28px;overflow:hidden;box-shadow:0 52px 120px -55px rgba(0,0,0,.82)}
+.feat-l{padding:clamp(32px,4vw,64px);display:flex;flex-direction:column;justify-content:center}
+.feat-l h2{margin:0;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1.03;font-weight:800;letter-spacing:-.03em;color:#fff}
+.feat-lead{margin:20px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.9);max-width:48ch}
+.content .lead-in .feat-lead a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.content .lead-in .feat-lead a:hover{text-decoration-color:#fff}
+.feat-cta{margin:32px 0 0}
+.content .lead-in .feat-btn{display:inline-flex;align-items:center;gap:10px;padding:17px 38px;border-radius:999px;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 50%,#7c4dff));color:#fff;font-weight:750;font-size:16.5px;text-decoration:none;box-shadow:0 20px 44px -12px var(--accent-glow);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.content .lead-in .feat-btn:hover{transform:translateY(-2px);box-shadow:0 26px 56px -14px var(--accent-glow)}
+.feat-btn .arr{transition:transform .18s var(--ease)}
+.content .lead-in .feat-btn:hover .arr{transform:translateX(3px)}
+.feat-more{margin:18px 0 0}
+.feat-readmore{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.7);transition:color .15s var(--ease)}
+.feat-readmore::-webkit-details-marker{display:none}
+.feat-readmore:hover{color:#fff}
+.feat-readmore .chev{width:15px;height:15px;transition:transform .2s var(--ease)}
+.feat-more[open] .feat-readmore .chev{transform:rotate(180deg)}
+.feat-detail{margin:20px 0 0;font-size:14.5px;line-height:1.72;color:rgba(255,255,255,.82)}
+.content .lead-in .feat-detail a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.feat-more:not([open]) .feat-detail{display:none}
+.content .lead-in .feat-lead{color:rgba(255,255,255,.9)}
+.content .lead-in .feat-detail,.content .lead-in .feat-detail p{color:rgba(255,255,255,.82)}
+.feat-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin:18px 0 2px}
+.feat-fact{padding:10px 0;border-top:1px solid rgba(255,255,255,.1)}
+.feat-fact .fl{display:block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 3px}
+.feat-fact .fv{display:block;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.88)}
+.feat-r{position:relative;overflow:hidden;min-height:clamp(300px,32vw,440px);background:radial-gradient(120% 105% at 70% 22%,color-mix(in srgb,var(--accent) 52%,#1a1030),#0a0d14 70%)}
+.feat-r::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;-webkit-mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%);mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%)}
+.feat-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:clamp(122px,16vw,166px);height:clamp(122px,16vw,166px);border-radius:34px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.02));box-shadow:0 38px 84px -22px var(--accent-glow),inset 0 0 0 1px rgba(255,255,255,.18)}
+.feat-badge img{width:52%;height:52%;object-fit:contain}
+@media (max-width:860px){
+  .content .lead-in .feat{width:calc(100vw - 28px);grid-template-columns:1fr}
+  .feat-l{padding:30px 22px 32px}
+  .feat-r{min-height:200px}
+  .feat-facts{grid-template-columns:1fr}
+}
+
 .tbl.spec table { min-width: 0; }
 .tbl.spec td:first-child { color: var(--muted); font-weight: 600; white-space: nowrap; width: 1%; }
 .content .sec { border-top: 1px solid var(--line); scroll-margin-top: 66px; }
@@ -323,168 +362,190 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .mnote { text-align: center; font-size: 11px; color: var(--muted); margin: 12px 2px 0; line-height: 1.5; }
 .mnote a { color: var(--accent-2); font-weight: 600; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .scrollcue2 svg, .mspin { animation: none; } .mbar i { transition: none; } }
+/* docs layout (sticky TOC + open sections) */
+.docs{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:236px minmax(0,1fr);gap:clamp(28px,4vw,60px);margin-top:clamp(40px,6vh,72px);align-items:start}
+.toc{position:sticky;top:74px;align-self:start;max-height:calc(100dvh - 96px);overflow:auto}
+.toc-h{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-left:13px}
+.toc a{display:block;padding:7px 13px;border-left:2px solid var(--line);color:var(--muted);font-size:13px;font-weight:600;line-height:1.35;text-decoration:none;transition:color .15s var(--ease),border-color .15s var(--ease)}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--accent-2);border-left-color:var(--accent);font-weight:750}
+.doc-main{min-width:0}
+.content .doc-sec{border:1px solid var(--line);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:0;scroll-margin-top:82px;transition:box-shadow .26s var(--ease),border-color .26s var(--ease)}
+.content .doc-sec:first-child{border-top:1px solid var(--line)}
+.content .doc-sec:hover{border-color:var(--line-2);box-shadow:0 16px 40px -22px rgba(17,24,39,.18)}
+.content .doc-sec[open]{border-color:var(--line)}
+.content .doc-sec>summary{cursor:default;pointer-events:none;padding:clamp(20px,3vh,28px) clamp(22px,3.2vw,32px) 8px;list-style:none}
+.content .doc-sec>summary::-webkit-details-marker{display:none}
+.content .doc-sec>summary::after{display:none}
+.content .doc-sec>summary h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec .sec-body{padding:0 clamp(22px,3.2vw,32px) clamp(22px,3.4vh,30px);max-width:74ch}
+.content .doc-sec.field-notes{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:clamp(22px,3vh,28px) clamp(22px,3.2vw,32px)}
+.content .doc-sec.field-notes h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec.field-notes .fn-body{max-width:74ch}
+@media (max-width:900px){
+  .docs{grid-template-columns:1fr;width:calc(100vw - 28px);gap:0}
+  .toc{position:sticky;top:56px;z-index:20;display:flex;gap:8px;overflow-x:auto;max-height:none;background:var(--bg);padding:11px 2px;margin:0 0 6px;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .toc-h{display:none}
+  .toc a{flex:0 0 auto;white-space:nowrap;border-left:0;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px}
+  .toc a.active{color:var(--accent-2);border-color:var(--accent);background:var(--accent-soft)}
+}
+.site-foot{width:min(1120px,calc(100vw - 44px));margin:clamp(34px,5vh,60px) auto 0;padding:22px 2px clamp(30px,4vh,48px);color:var(--faint);font-size:12.5px;line-height:1.6}
+.site-foot p{margin:0 0 6px;max-width:82ch}
+.site-foot strong{color:var(--muted);font-weight:700}
+.site-foot .foot-fine{font-size:11.5px}
   </style>
-  <meta property="og:type" content="website"><meta property="og:url" content="https://cronos-bridge.github.io/">
-  <meta property="og:title" content="Cronos Bridge — Dashboard">
-  <meta property="og:description" content="How the Cronos Bridge moves assets between Cronos EVM, Cronos POS, and external chains: routes, timing, fees, safety checks, and fixes for stuck transfers.">
-  <meta property="og:site_name" content="Cronos Bridge"><meta property="og:image" content="https://cronos-bridge.github.io/og-cover.png">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Cronos Bridge — independent dashboard">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Cronos Bridge — Dashboard">
-  <meta name="twitter:description" content="How the Cronos Bridge moves assets between Cronos EVM, Cronos POS, and external chains: routes, timing, fees, safety checks, and fixes for stuck transfers."><meta name="twitter:image" content="https://cronos-bridge.github.io/og-cover.png">
-  <script type="application/ld+json">
+<meta content="website" property="og:type"/><meta content="https://cronos-bridge.github.io/" property="og:url"/>
+<meta content="Cronos Bridge — Dashboard" property="og:title"/>
+<meta content="How the Cronos Bridge moves assets between Cronos EVM, Cronos POS, and external chains: routes, timing, fees, safety checks, and fixes for stuck transfers." property="og:description"/>
+<meta content="Cronos Bridge" property="og:site_name"/><meta content="https://cronos-bridge.github.io/og-cover.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Cronos Bridge — independent dashboard" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/><meta content="Cronos Bridge — Dashboard" name="twitter:title"/>
+<meta content="How the Cronos Bridge moves assets between Cronos EVM, Cronos POS, and external chains: routes, timing, fees, safety checks, and fixes for stuck transfers." name="twitter:description"/><meta content="https://cronos-bridge.github.io/og-cover.png" name="twitter:image"/>
+<script type="application/ld+json">
   {"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://cronos-bridge.github.io/#website", "url": "https://cronos-bridge.github.io/", "name": "Cronos Bridge", "inLanguage": "en"}, {"@type": "SoftwareApplication", "@id": "https://cronos-bridge.github.io/#brand", "name": "Cronos bridge", "alternateName": ["Cronos Bridge", "Cronos"], "description": "Cross-chain bridge routes for moving assets to and from Cronos, via native or third-party bridges.", "sameAs": ["https://docs.cronos.com/for-users/bridge/other_chain", "https://github.com/crypto-org-chain/cronos", "https://www.coingecko.com/en/coins/cronos", "https://docs.cronos.com/for-users/bridge/other_chain/webapp", "https://docs.cronos.com/for-users/bridge/faq"], "applicationCategory": "FinanceApplication", "operatingSystem": "Web"}, {"@type": "WebPage", "@id": "https://cronos-bridge.github.io/#webpage", "url": "https://cronos-bridge.github.io/", "name": "Cronos Bridge — Dashboard", "description": "How the Cronos Bridge moves assets between Cronos EVM, Cronos POS, and external chains: routes, timing, fees, safety checks, and fixes for stuck transfers.", "isPartOf": {"@id": "https://cronos-bridge.github.io/#website"}, "about": {"@id": "https://cronos-bridge.github.io/#brand"}, "mainEntity": {"@id": "https://cronos-bridge.github.io/#brand"}, "inLanguage": "en", "dateModified": "2026-07-21"}, {"@type": "FAQPage", "@id": "https://cronos-bridge.github.io/#faq", "mainEntity": [{"@type": "Question", "name": "Is this the official Cronos Bridge site?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is an independent, non-custodial informational dashboard — it doesn't represent Cronos Labs and never holds user funds or keys. The live official bridge interface is authoritative for supported routes and assets."}}, {"@type": "Question", "name": "How long does bridging take?", "acceptedAnswer": {"@type": "Answer", "text": "Native Cronos POS–Cronos EVM transfers typically complete in minutes, gated by source-chain confirmation, relayer delivery, and destination execution. External-network routes and withdrawals involving proving or finalization can take longer. Judge by the route status and explorers, not the clock."}}, {"@type": "Question", "name": "How do I bridge to Cronos?", "acceptedAnswer": {"@type": "Answer", "text": "Pick the source chain and asset in the bridge interface, connect a compatible self-custody wallet, enter the receiving address in the correct format for the destination chain, and sign the source-chain transaction. Then verify the resulting balance on the destination explorer before moving on."}}, {"@type": "Question", "name": "Do I need the destination gas asset?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — CRO is the gas token on both Cronos EVM and Cronos POS, and arriving funds are stuck in place until you can pay gas to move them. If you're bridging from an external network, you also need that chain's gas token for the source transaction."}}, {"@type": "Question", "name": "Is Cronos Bridge safe to use?", "acceptedAnswer": {"@type": "Answer", "text": "It removes custodial exchange risk, but smart-contract, approval, cross-chain, and phishing risks remain — no bridge is risk-free. Verify the domain and signing prompts, use the documented bridge webapp, and consider a small test transfer first."}}, {"@type": "Question", "name": "What's the difference between native and third-party bridges?", "acceptedAnswer": {"@type": "Answer", "text": "Native routes use IBC light-client proofs with external relayers between Cronos POS and Cronos EVM — no intermediary holds your funds. Third-party bridges like Stargate, Relay, and Symbiosis reach more networks but use their own contracts, liquidity, and trust models, so evaluate each one separately."}}]}]}
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="shell">
-    <main class="main" id="main">
-      <header class="topbar">
-        <div class="topbar-left">
-          <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-controls="sideNav" aria-expanded="false" data-nav-open><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-          <a class="topbar-logo" href="./" aria-label="Cronos Bridge home"><img src="favicon.png" width="20" height="20" alt="Cronos Bridge logo"></a>
-          <h1 class="wordmark">Cronos Bridge</h1>
-        </div>
-        <div class="topbar-right">
-          <div class="ticker" aria-label="Live metrics">
-            <a class="tick" href="https://defillama.com/chain/Cronos" target="_blank" rel="noopener noreferrer" aria-label="Cronos TVL"><span>Cronos TVL</span> <b id="sig-ctvl">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/crypto-com-chain" target="_blank" rel="noopener noreferrer" aria-label="Cronos"><span>Cronos</span> <b id="sig-crypto-com-chain">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noopener noreferrer" aria-label="ETH"><span>ETH</span> <b id="sig-ethereum">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-        </div>
-      </header>
-
-      <section class="hero2">
-        <div class="hero2-l">
-          <h2 class="hero2-h">Bridge Assets Across Cronos Networks</h2>
-          <p class="hero2-lead"><strong>Cronos Bridge</strong> moves assets between Cronos EVM, Cronos POS, and supported external networks directly from your wallet, without exchange custody.</p>
-          <div class="hero2-cta">
-            <a class="btn2 btn2-primary" href="dashboard/" target="_blank" rel="noopener noreferrer">Open the Cronos bridge <span class="go" aria-hidden="true">↗</span></a>
-            <a class="btn2 btn2-ghost" href="#what">How it works</a>
-          </div>
-        </div>
-        <div class="hero2-r">
-        <section class="swap-card" id="swap-preview" aria-labelledby="preview-title">
-          <div class="card-head">
-            <p class="card-title" id="preview-title">Preview</p>
-            <span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
-          </div>
-          <div class="leg">
-            <span class="asset" id="asset-from"><span class="tok"><img src="eth.png" alt="Ethereum token" width="24" height="24" loading="lazy" decoding="async"></span><b>Ethereum</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <button class="swap-arrow" id="route-swap" type="button" aria-label="Swap preview direction" title="Swap preview direction">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"/></svg>
-          </button>
-          <div class="leg">
-            <span class="asset" id="asset-to"><span class="tok"><img src="cro.png" alt="CRO token" width="24" height="24" loading="lazy" decoding="async"></span><b>CRO</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <div class="route-panel">
-            <div class="route-info"><b id="route-name">Deposit · Ethereum → Cronos</b><span>Non-custodial bridge route</span></div>
-            <div class="route-tok"><span class="tok sm"><img src="cro.png" alt="CRO token" width="18" height="18" loading="lazy" decoding="async"></span> CRO</div>
-          </div>
-          <div class="route-row"><span>Type</span><b>Bridge route</b></div>
-          <div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
-          <a class="swap-cta" href="dashboard/" target="_blank" rel="noopener noreferrer"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>Go to Swap<span class="cta-go" aria-hidden="true">→</span></a>
-        </section>
-        </div>
-        <a class="scrollcue2" href="#what" aria-label="Scroll to learn more"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M12 19l-6-6M12 19l6-6"/></svg></a>
-      </section>
-
-            <div class="content">
-        <div class="lead-in reveal">
-          <p>Cronos Bridge is the routing layer people use to move assets between Cronos EVM, Cronos POS, and supported external networks without handing funds to a centralized exchange. In practice that means picking a source and destination chain, connecting a self-custody wallet, signing one source-chain transaction, and waiting for relayers and destination-chain verification to finish the job. This page is an independent, non-custodial reference dashboard — it doesn't represent Cronos Labs, and it never holds your funds or keys. The <a href="https://cronos.org/bridge/">official Cronos bridge interface</a> remains the authoritative source for live routes and allow-listed assets.</p>
-          <div class="tbl spec"><table><tbody><tr><td>Route</td><td>source chain <-> destination chain</td></tr><tr><td>Deposit</td><td>typically minutes</td></tr><tr><td>Withdraw</td><td>may need proving/finalization</td></tr><tr><td>Gas</td><td>native asset on both chains</td></tr><tr><td>Custody</td><td>Non-custodial — your wallet signs</td></tr><tr><td>Verify</td><td>Use the official contracts; beware fake bridge sites</td></tr></tbody></table></div>
-        </div>
-
-        <details id="what" class="sec reveal">
-          <summary><h2>What is Cronos Bridge?</h2></summary>
-          <div class="sec-body"><p>It's the set of routes and contracts that move value between Cronos's two native chains and, via third-party protocols, external networks. The canonical native route connects Cronos POS (Cosmos SDK, Bech32 <code>cro</code> addresses, chain ID <code>crypto-org-chain-mainnet-1</code>) with Cronos EVM (Ethereum-style <code>0x</code> accounts, EIP-155 chain ID <code>25</code>, Cosmos chain ID <code>cronosmainnet_25-1</code>). CRO is the gas token on both sides.</p><p>Two things people conflate: first, third-party bridges like Stargate, Relay, and Symbiosis reach additional networks but use different contracts and trust models than the native route — treat them as separate products. Second, Cronos zkEVM has its own bridge and is not the same thing as the Cronos POS–Cronos EVM route. Check which route you're actually on before signing anything; the <a href="https://docs.cronos.com/for-users/bridge/other_chain">Cronos bridge documentation</a> lists the supported paths.</p></div>
-        </details>
-
-        <details id="how" class="sec reveal">
-          <summary><h2>How bridging works</h2></summary>
-          <div class="sec-body"><p>You select the source chain, destination chain, asset, amount, and receiving wallet, then connect a compatible self-custody wallet and sign a single source-chain transaction. The site never needs your seed phrase or private key — if any interface asks for one, leave.</p><p>On native Cronos routes, the mechanics are IBC: the source chain escrows or converts the asset, relayers carry a proof of that event to the destination chain, and the destination chain independently verifies the proof before releasing or minting the destination representation. Relayers only deliver messages — they can't forge them, because the destination chain does its own verification. That's the core of <a href="https://ibcprotocol.dev/how-ibc-works">how IBC works</a>. On EVM-side token interactions you may also sign an approval before the bridge transaction itself; approve only what the route needs, and review what you're approving.</p></div>
-        </details>
-
-        <details id="deposit" class="sec reveal">
-          <summary><h2>Depositing to the destination</h2></summary>
-          <div class="sec-body"><p>Depositing means signing on the source chain and waiting for confirmation, relay, and destination execution — on native Cronos routes this typically completes in minutes, but it depends on both chains being healthy and relayers being available. Supported assets are allow-listed, so if a token isn't listed in the live interface, it isn't supported on that route regardless of what a third-party site claims.</p><p>The practical detail that trips people up: make sure the receiving address format matches the destination chain. Cronos POS expects a Bech32 <code>cro</code> address; Cronos EVM expects a <code>0x</code> address. Sending to the right chain with the wrong address format is a recoverable-looking mistake that often isn't. Also keep some CRO on the destination side so you can actually use the funds when they arrive.</p></div>
-        </details>
-
-        <details id="withdraw" class="sec reveal">
-          <summary><h2>Withdrawing back</h2></summary>
-          <div class="sec-body"><p>Withdrawing is the same flow in reverse, but expect the return leg to take longer in some configurations: routes that involve proving or finalization steps can't complete until the source chain's state is considered final on the destination side. Don't judge a withdrawal by deposit-side speed.</p><p>While a withdrawal is pending, don't re-submit it "to speed it up" — duplicate transactions are how people double-pay gas or lock funds into a second in-flight transfer they didn't want. Track the source transaction hash, watch the route status, and only act once the route reports a definitive state. If the interface shows it complete, verify on the destination chain before assuming the balance is spendable.</p></div>
-        </details>
-
-        <details id="fees" class="sec reveal">
-          <summary><h2>Time and fees</h2></summary>
-          <div class="sec-body"><p>Costs come in two layers: gas on the source chain to sign the bridge transaction, and the mechanism costs on the destination side, which on native IBC routes are handled by relayers and module execution rather than a separate user-facing toll. Since CRO is the gas token on both Cronos EVM and Cronos POS, you need CRO wherever you intend to transact. If you're bridging from an external network, you pay that chain's gas too.</p><p>Third-party bridges add their own provider fees on top of gas — that's how those protocols are compensated for liquidity and routing, and it varies by route, asset, and market conditions. The honest way to compare is to look at the quoted receive amount in the interface before signing, not to trust any headline fee claim. Timing follows the same logic: native routes typically settle in minutes, but confirmation depth, relayer availability, and channel health on both chains all gate completion.</p></div>
-        </details>
-
-        <details id="safety" class="sec reveal">
-          <summary><h2>Is Cronos Bridge safe?</h2></summary>
-          <div class="sec-body"><p>The native design removes custodial exchange risk — your wallet holds the signing keys, and protocol modules escrow, release, or convert assets rather than a company holding them. That is genuinely better than depositing to an exchange, but it is not risk-free: smart-contract bugs, compromised approvals, relayer or channel failures, and plain user error all remain live risks. Open-source code, like the <a href="https://github.com/crypto-org-chain/cronos">Cronos chain repository</a>, allows inspection — it doesn't guarantee outcomes.</p><p>The most common real-world loss isn't a protocol exploit; it's phishing. Fake bridge sites clone the interface and drain wallets via malicious approvals. Verify the domain before connecting, confirm the networks, asset, and recipient in your wallet's signing prompt, and consider a small test transfer the first time you use a route. You can cross-check contract and transaction details on the <a href="https://explorer.cronos.com/">Cronos explorer</a>.</p></div>
-        </details>
-
-        <details id="troubleshoot" class="sec reveal">
-          <summary><h2>Problems and fixes</h2></summary>
-          <div class="sec-body"><p><strong>Wrong network.</strong> If your wallet is on the wrong chain, the interface can't build the route. Switch networks in the wallet — never paste your seed phrase into a site that claims it will "sync" or "rectify" your wallet. That's the standard drainer script.</p><p><strong>Funds arrived but unusable.</strong> You have no gas on the destination chain. You need CRO on Cronos EVM or Cronos POS to move anything further; bridge a small amount of CRO first next time, or acquire gas through a route that delivers it.</p><p><strong>Transfer pending.</strong> Completion depends on both chains, confirmations, relayer availability, and channel health. Check the source transaction on the relevant explorer, confirm it succeeded, then give the relay step time. Only investigate a failure once the source transaction is final.</p><p><strong>Suspect site.</strong> If the domain looks off, an approval request asks for unlimited spend on an unrelated token, or the site requests your recovery phrase — disconnect, revoke suspicious approvals from a known-good interface, and move funds if you signed anything you didn't understand.</p></div>
-        </details>
-
-        <details id="faq" class="sec reveal">
-          <summary><h2>Cronos FAQ</h2></summary>
-          <div class="sec-body">
-          <details class="qa"><summary>Is this the official Cronos Bridge site?</summary><div class="a"><p>No. This is an independent, non-custodial informational dashboard — it doesn't represent Cronos Labs and never holds user funds or keys. The live <a href="https://cronos.org/bridge/">official bridge interface</a> is authoritative for supported routes and assets.</p></div></details>
-          <details class="qa"><summary>How long does bridging take?</summary><div class="a"><p>Native Cronos POS–Cronos EVM transfers typically complete in minutes, gated by source-chain confirmation, relayer delivery, and destination execution. External-network routes and withdrawals involving proving or finalization can take longer. Judge by the route status and explorers, not the clock.</p></div></details>
-          <details class="qa"><summary>How do I bridge to Cronos?</summary><div class="a"><p>Pick the source chain and asset in the bridge interface, connect a compatible self-custody wallet, enter the receiving address in the correct format for the destination chain, and sign the source-chain transaction. Then verify the resulting balance on the destination explorer before moving on.</p></div></details>
-          <details class="qa"><summary>Do I need the destination gas asset?</summary><div class="a"><p>Yes — CRO is the gas token on both Cronos EVM and Cronos POS, and arriving funds are stuck in place until you can pay gas to move them. If you're bridging from an external network, you also need that chain's gas token for the source transaction.</p></div></details>
-          <details class="qa"><summary>Is Cronos Bridge safe to use?</summary><div class="a"><p>It removes custodial exchange risk, but smart-contract, approval, cross-chain, and phishing risks remain — no bridge is risk-free. Verify the domain and signing prompts, use the <a href="https://docs.cronos.com/for-users/bridge/other_chain/webapp">documented bridge webapp</a>, and consider a small test transfer first.</p></div></details>
-          <details class="qa"><summary>What&#x27;s the difference between native and third-party bridges?</summary><div class="a"><p>Native routes use IBC light-client proofs with external relayers between Cronos POS and Cronos EVM — no intermediary holds your funds. Third-party bridges like Stargate, Relay, and Symbiosis reach more networks but use their own contracts, liquidity, and trust models, so evaluate each one separately.</p></div></details>
-          </div>
-        </details>
-
-        <section class="field-notes reveal" id="notes">
-          <h2>Notes before you use Cronos Bridge</h2>
-          <div class="fn-body"><p>Bridging on Cronos is straightforward once you internalize one idea: your wallet signs, the chains verify, and nothing in between should ever custody your funds or ask for your seed phrase.</p><p>The common mistake is treating the bridge like an exchange deposit — pasting an address without checking the destination chain's format, then realizing the receiving wallet can't see the funds.</p><p><strong>Before you sign</strong></p><ul><li>Confirm you're on the real bridge interface and that the contract or route matches the documented one — fake bridge clones are the main way people lose funds here.</li><li>Check the source and destination networks explicitly, and match the address format: <code>0x</code> for Cronos EVM, Bech32 <code>cro</code> for Cronos POS.</li><li>Keep CRO for gas on both chains, and know whether your route has a proving or finalization wait on the return leg before you commit the amount.</li></ul><p>Routes, allow-lists, and interfaces change, so verify every claim here against the live official interface and the on-chain transaction itself — last reviewed 21 July 2026.</p><p><strong>Independent reference — confirm the route in your own wallet.</strong></p></div>
-        </section>
-      </div>
-    </main>
-    <aside class="sidebar">
-      <div class="side-top">
-        <div class="brand">
-          <a class="brand-logo" href="./" aria-label="Cronos Bridge home"><img src="favicon.png" width="30" height="30" alt="Cronos Bridge logo"></a>
-          <p class="brand-name">Cronos</p>
-        </div>
-        <button class="nav-toggle" type="button" aria-label="Close navigation menu" aria-controls="sideNav" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-      </div>
-
-      <nav class="side-nav" id="sideNav" aria-label="Primary">
-        <p class="nav-label">Bridge</p>
-        <a class="nav-item is-active" href="#swap-preview" aria-current="true">
-          <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg>
-          Bridge preview
-        </a>
-        <p class="nav-label">On this page</p>
-        <details class="nav-group">
-          <summary>
-            <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>
-            Guide sections
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="nav-sub"><a href="#what">What is Cronos Bridge?</a><a href="#how">How bridging works</a><a href="#deposit">Depositing to the destination</a><a href="#withdraw">Withdrawing back</a><a href="#fees">Time and fees</a><a href="#safety">Is Cronos Bridge safe?</a><a href="#troubleshoot">Problems and fixes</a><a href="#faq">FAQ</a></div>
-        </details>
-      </nav>
-
-      <div class="sidebar-foot">
-        <p class="disclose"><strong>Independent</strong> Cronos Bridge information dashboard. Not affiliated with any official product.</p>
-        <p class="fine">Live metrics are compiled from public APIs. Review your route in the official app before signing.</p>
-        <p class="fine">© 2026 Cronos Bridge dashboard.</p>
-      </div>
-    </aside>
-    <div class="scrim" data-scrim></div>
-  </div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+<main class="main" id="main">
+<header class="topbar">
+<div class="topbar-left">
+<h1 class="wordmark">Cronos Bridge</h1>
+</div>
+<div class="topbar-right">
+<div aria-label="Live metrics" class="ticker">
+<a aria-label="Cronos TVL" class="tick" href="https://defillama.com/chain/Cronos" rel="noopener noreferrer" target="_blank"><span>Cronos TVL</span> <b id="sig-ctvl">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="Cronos" class="tick" href="https://coinmarketcap.com/currencies/crypto-com-chain/" rel="noopener noreferrer" target="_blank"><span>Cronos</span> <b id="sig-crypto-com-chain">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="ETH" class="tick" href="https://defillama.com/" rel="noopener noreferrer" target="_blank"><span>ETH</span> <b id="sig-ethereum">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+</div>
+</div>
+</header>
+<section class="hero2">
+<div class="hero2-l">
+<h2 class="hero2-h">Bridge Assets Across Cronos Networks</h2>
+<p class="hero2-lead"><strong>Cronos Bridge</strong> moves assets between Cronos EVM, Cronos POS, and supported external networks directly from your wallet, without exchange custody.</p>
+<div class="hero2-cta">
+<a class="btn2 btn2-primary" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the Cronos bridge <span aria-hidden="true" class="go">↗</span></a>
+<a class="btn2 btn2-ghost" href="#what">How it works</a>
+</div>
+</div>
+<div class="hero2-r">
+<section aria-labelledby="preview-title" class="swap-card" id="swap-preview">
+<div class="card-head">
+<p class="card-title" id="preview-title">Preview</p>
+<span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
+</div>
+<div class="leg">
+<span class="asset" id="asset-from"><span class="tok"><img alt="Ethereum token" decoding="async" height="24" loading="lazy" src="eth.png" width="24"/></span><b>Ethereum</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<button aria-label="Swap preview direction" class="swap-arrow" id="route-swap" title="Swap preview direction" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"></path></svg>
+</button>
+<div class="leg">
+<span class="asset" id="asset-to"><span class="tok"><img alt="CRO token" decoding="async" height="24" loading="lazy" src="cro.png" width="24"/></span><b>CRO</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<div class="route-panel">
+<div class="route-info"><b id="route-name">Deposit · Ethereum → Cronos</b><span>Non-custodial bridge route</span></div>
+<div class="route-tok"><span class="tok sm"><img alt="CRO token" decoding="async" height="18" loading="lazy" src="cro.png" width="18"/></span> CRO</div>
+</div>
+<div class="route-row"><span>Type</span><b>Bridge route</b></div>
+<div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
+<a class="swap-cta" href="dashboard/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="cta-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"></path></svg>Go to Swap<span aria-hidden="true" class="cta-go">→</span></a>
+</section>
+</div>
+<a aria-label="Scroll to learn more" class="scrollcue2" href="#what"><span>Scroll</span><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M12 5v14M12 19l-6-6M12 19l6-6"></path></svg></a>
+</section>
+<div class="content">
+<div class="lead-in reveal">
+<div class="feat">
+<div class="feat-l">
+<h2>Cronos Bridge Protocol Architecture &amp; Route Overview</h2>
+<p class="feat-lead">Cronos Bridge is the routing layer people use to move assets between Cronos EVM, Cronos POS, and supported external networks without handing funds to a centralized exchange.</p>
+<div class="feat-cta"><a class="feat-btn" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the App <span aria-hidden="true" class="arr">→</span></a></div>
+<details class="feat-more">
+<summary class="feat-readmore">Read more <svg aria-hidden="true" class="chev" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></summary>
+<div class="feat-detail">
+<p>In practice that means picking a source and destination chain, connecting a self-custody wallet, signing one source-chain transaction, and waiting for relayers and destination-chain verification to finish the job. This page is an independent, non-custodial reference dashboard — it doesn't represent Cronos Labs, and it never holds your funds or keys. The <a href="https://cronos.org/bridge/">official Cronos bridge interface</a> remains the authoritative source for live routes and allow-listed assets.</p>
+<div class="feat-facts">
+<div class="feat-fact"><span class="fl">Route</span><span class="fv">source chain &lt;-&gt; destination chain</span></div>
+<div class="feat-fact"><span class="fl">Deposit</span><span class="fv">typically minutes</span></div>
+<div class="feat-fact"><span class="fl">Withdraw</span><span class="fv">may need proving/finalization</span></div>
+<div class="feat-fact"><span class="fl">Gas</span><span class="fv">native asset on both chains</span></div>
+<div class="feat-fact"><span class="fl">Custody</span><span class="fv">Non-custodial — your wallet signs</span></div>
+<div class="feat-fact"><span class="fl">Verify</span><span class="fv">Use the official contracts; beware fake bridge sites</span></div>
+</div>
+</div>
+</details>
+</div>
+<div class="feat-r"><span class="feat-badge"><img alt="Cronos Bridge" height="72" src="cro.png" width="72"/></span></div>
+</div>
+</div>
+<div class="docs">
+<nav aria-label="On this page" class="toc">
+<p class="toc-h">On this page</p>
+<a href="#what">What is Cronos Bridge?</a>
+<a href="#how">How bridging works</a>
+<a href="#deposit">Depositing to the destination</a>
+<a href="#withdraw">Withdrawing back</a>
+<a href="#fees">Time and fees</a>
+<a href="#safety">Is Cronos Bridge safe?</a>
+<a href="#troubleshoot">Problems and fixes</a>
+<a href="#faq">Cronos FAQ</a>
+<a href="#notes">Notes before you use Cronos Bridge</a>
+</nav>
+<div class="doc-main">
+<details class="sec reveal doc-sec" id="what" open="">
+<summary><h2>What is Cronos Bridge?</h2></summary>
+<div class="sec-body"><p>Cronos Bridge is a set of routes and contracts that move value between Cronos's two native chains and, via third-party protocols, external networks. The canonical native route connects Cronos POS (Cosmos SDK, Bech32 <code>cro</code> addresses, chain ID <code>crypto-org-chain-mainnet-1</code>) with Cronos EVM (Ethereum-style <code>0x</code> accounts, EIP-155 chain ID <code>25</code>, Cosmos chain ID <code>cronosmainnet_25-1</code>); an <a href="https://eips.ethereum.org/EIPS/eip-155" rel="noopener noreferrer" target="_blank">EIP-155 chain ID</a> distinguishes the EVM network when a wallet signs a transaction. CRO is the gas token on both sides.</p><p>Third-party bridges like Stargate, Relay, and Symbiosis reach additional networks but use different contracts and trust models than the native route. Cronos zkEVM has its own bridge and is not the same thing as the Cronos POS–Cronos EVM route, so the route name and destination chain must match what you intend to use.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="how" open="">
+<summary><h2>How bridging works</h2></summary>
+<div class="sec-body"><p>Bridging starts when you select the source chain, destination chain, asset, amount, and receiving wallet, connect a compatible self-custody wallet, and sign a single source-chain transaction. The site never needs your seed phrase or private key.</p><p>On native Cronos routes, the mechanics are IBC: the source chain escrows or converts the asset, relayers carry a proof of that event to the destination chain, and the destination chain independently verifies the proof before releasing or minting the destination representation. Relayers only deliver messages — they can't forge them, because the destination chain does its own verification; this <a href="https://ibcprotocol.dev/how-ibc-works" rel="noopener noreferrer" target="_blank">IBC packet flow</a> is the core mechanism. On EVM-side token interactions you may also sign an approval before the bridge transaction itself; that approval controls which token amount the bridge contract can move.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="deposit" open="">
+<summary><h2>Depositing to the destination</h2></summary>
+<div class="sec-body"><p>Depositing means signing on the source chain and waiting for confirmation, relay, and destination execution; on native Cronos routes this typically completes in minutes, depending on both chains being healthy and relayers being available. Supported assets are allow-listed, so a token absent from the live interface is not supported on that route regardless of what a third-party site claims.</p><p>The receiving address must use the destination chain's format: Cronos POS expects a Bech32 <code>cro</code> address, while Cronos EVM expects a <code>0x</code> address. <a href="https://en.wikipedia.org/wiki/Bech32" rel="noopener noreferrer" target="_blank">Bech32 format</a> is a human-readable encoding used by some blockchain addresses. Sending to the right chain with the wrong address format is a recoverable-looking mistake that often isn't, and you need CRO on the destination side to use the funds when they arrive.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="withdraw" open="">
+<summary><h2>Withdrawing back</h2></summary>
+<div class="sec-body"><p>Withdrawing is the same flow in reverse, and the return leg can take longer in some configurations because routes with proving or finalization steps wait until the source chain's state is considered final on the destination side. Deposit-side speed is not a timing estimate for withdrawal.</p><p>For a pending withdrawal, keep the source transaction hash and follow the route status; a second submission can double-pay gas or lock funds into a second in-flight transfer. If the interface reports completion, verify the balance on the destination chain before treating it as spendable.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="fees" open="">
+<summary><h2>Time and fees</h2></summary>
+<div class="sec-body"><p>Bridge cost is source-chain gas plus any route-specific provider charge: on native IBC routes, destination-side mechanism costs are handled by relayers and module execution rather than a separate user-facing toll. Since CRO is the gas token on both Cronos EVM and Cronos POS, you need CRO wherever you intend to transact; bridging from an external network also requires that chain's gas. The <a href="https://ethereum.org/developers/docs/gas/" rel="noopener noreferrer" target="_blank">technical gas overview</a> explains why the source transaction needs a fee.</p><p>Third-party bridges add provider fees for liquidity and routing, and the amount varies by route, asset, and market conditions. Compare the quoted receive amount in the interface before signing. Native routes typically settle in minutes, but confirmation depth, relayer availability, and channel health on both chains gate completion.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="safety" open="">
+<summary><h2>Is Cronos Bridge safe?</h2></summary>
+<div class="sec-body"><p>Cronos Bridge removes custodial exchange risk because your wallet holds the signing keys, while protocol modules escrow, release, or convert assets rather than a company holding them. Smart-contract bugs, compromised approvals, relayer or channel failures, and plain user error still remain live risks; <a href="https://github.com/crypto-org-chain/cronos" rel="noopener noreferrer" target="_blank">open-source Cronos code</a> permits inspection but does not guarantee outcomes.</p><p>Phishing is a separate wallet-drain risk: fake bridge sites clone the interface and use malicious approvals, and <a href="https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams" rel="noopener noreferrer" target="_blank">phishing guidance</a> describes the same impersonation pattern. A mismatched domain, an approval for unlimited spend on an unrelated token, or a request for your recovery phrase is a stop signal; verify the domain, networks, asset, and recipient in the wallet's signing prompt, use a small test transfer the first time you use a route, and cross-check contract and transaction details on the relevant explorer.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="troubleshoot" open="">
+<summary><h2>Problems and fixes</h2></summary>
+<div class="sec-body"><p><strong>Wrong network.</strong> Switch the wallet to the chain selected in the route; the interface cannot build a transaction for a different network.</p><p><strong>Funds arrived but unusable.</strong> Add CRO on Cronos EVM or Cronos POS before trying to move the destination balance; the destination gas asset is required for the next transaction. Bridge a small amount of CRO first next time, or acquire gas through a route that delivers it.</p><p><strong>Transfer pending.</strong> Check the source transaction on the relevant explorer, confirm it succeeded, and then follow the relay step until the source transaction is final; completion depends on both chains, confirmations, relayer availability, and channel health.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="faq" open="">
+<summary><h2>Cronos FAQ</h2></summary>
+<div class="sec-body">
+<details class="qa"><summary>Is this the official Cronos Bridge site?</summary><div class="a"><p>No. This is an independent, non-custodial informational dashboard; it doesn't represent Cronos Labs and never holds user funds or keys. The live <a href="https://cronos.org/bridge/" rel="noopener noreferrer" target="_blank">official bridge interface</a> is authoritative for supported routes and assets.</p></div></details>
+<details class="qa"><summary>How long does bridging take?</summary><div class="a"><p>Native Cronos POS–Cronos EVM transfers typically complete in minutes through source-chain confirmation, relayer delivery, and destination execution. External-network routes and withdrawals involving proving or finalization can take longer, so use the route status and explorers.</p></div></details>
+<details class="qa"><summary>How do I bridge to Cronos?</summary><div class="a"><p>Pick the source chain and asset, connect a compatible self-custody wallet, enter the receiving address in the destination format, sign the source-chain transaction, and verify the resulting balance on the destination explorer.</p></div></details>
+<details class="qa"><summary>Do I need the destination gas asset?</summary><div class="a"><p>Yes. CRO is the gas token on both Cronos EVM and Cronos POS, and arriving funds are stuck in place until you can pay gas to move them. An external-network source also needs that chain's gas token.</p></div></details>
+<details class="qa"><summary>Is Cronos Bridge safe to use?</summary><div class="a"><p>The native route is non-custodial: your wallet holds the signing keys, while protocol modules escrow, release, or convert assets rather than a company holding them.</p></div></details>
+<details class="qa"><summary>What's the difference between native and third-party bridges?</summary><div class="a"><p>Native routes use IBC light-client proofs with external relayers between Cronos POS and Cronos EVM, while third-party bridges like Stargate, Relay, and Symbiosis use their own contracts, liquidity, and trust models to reach more networks.</p></div></details>
+</div>
+</details>
+<section class="field-notes reveal doc-sec" id="notes">
+<h2>Notes before you use Cronos Bridge</h2>
+<div class="fn-body"><p>Your wallet signs the source transaction, the chains verify the relay, and the route does not require your seed phrase or private key.</p><p>The common mistake is treating the bridge like an exchange deposit: pasting an address without checking the destination chain's format can leave the receiving wallet unable to use the funds.</p><p><strong>Before you sign</strong>: match the interface, contract, route, source and destination networks, and address format (<code>0x</code> for Cronos EVM, Bech32 <code>cro</code> for Cronos POS); keep CRO for gas on both chains and account for any proving or finalization wait on the return leg.</p><p>Routes, allow-lists, and interfaces change, so verify the live official interface and the on-chain transaction itself — last reviewed 21 July 2026.</p><p><strong>Independent reference — confirm the route in your own wallet.</strong></p></div>
+</section>
+</div>
+</div>
+</div>
+<footer class="site-foot"><div class="wrap">Cronos Bridge Guide &amp; Technical Reference · <a href="dashboard/" rel="noopener noreferrer" target="_blank">Open Cronos Bridge App ↗</a> · © 2026</div></footer>
+</main>
+</div>
 <script>
 /* Cronos Bridge: route preview, mobile nav, scroll-reveal. */
 (function () {
@@ -596,6 +657,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
     if (el && el.tagName === "DETAILS") { el.open = true; el.classList.add("in"); }
   });
 
+  })();
+  (function(){
+    var links=[].slice.call(document.querySelectorAll(".toc a"));
+    if(!links.length)return;
+    var secs=[].slice.call(document.querySelectorAll(".doc-main [id]")).filter(function(s){return document.querySelector('.toc a[href="#'+s.id+'"]');});
+    if(!secs.length)return;
+    function setActive(id){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+id);});}
+    function update(){var cur=secs[0];for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top-120<=0)cur=secs[i];else break;}if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)cur=secs[secs.length-1];if(cur)setActive(cur.id);}
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    update();
   })();
   </script>
 </body>
